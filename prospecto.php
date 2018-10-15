@@ -31,6 +31,10 @@ class Prospecto{
 	public function getRutaDoc(){
 		return this->ruta_doc;
 	}
+
+	public function getInsert(){
+		return "INSERT INTO `prospecto` (`id`, `nombre`, `ape_pat`, `ape_mat`, `cel`, `correo`,`ruta_doc`) VALUES (NULL, '".$nombre."', '".$ape_pat."', '".$ape_mat."', '".$cel."', '".$correo.", '".$ruta_doc."');";
+	}
 }
 
 ?>

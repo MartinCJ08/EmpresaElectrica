@@ -14,12 +14,12 @@ function Conectarse(){
     return $conexion;
 }
 
-function conect($server,$database,$username,$password,$sql){
+function conect($server,$db,$user,$pass,$sql){
 
-    $s = "mysql.hostinger.co.uk";
-    $data = "u266072517_name";
-    $username = "u266072517_user";
-    $password = "buystuffpwd";
+    $servername = $server;
+    $database = $db;
+    $username = $user;
+    $password = $pass;
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $database);
     // Check connection
@@ -29,11 +29,11 @@ function conect($server,$database,$username,$password,$sql){
      
     echo "Connected successfully";
      
-    $sql = "INSERT INTO Students (name, lastname, email) VALUES ('Thom', 'Vial', 'thom.v@some.com')";
-    if (mysqli_query($conn, $sql)) {
+    $s = $sql;
+    if (mysqli_query($conn, $s)) {
           echo "New record created successfully";
     } else {
-          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          echo "Error: " . $s . "<br>" . mysqli_error($conn);
     }
     mysqli_close($conn);
  
