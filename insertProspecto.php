@@ -18,7 +18,7 @@ $link=Conectarse();
   $cel=@$_POST['cel'];
   $ruta=@$_POST['ruta_doc'];
   
-  $q = "INSERT INTO `prospecto` (`id`, `nombre`, `ape_pat`, `ape_mat`, `cel`, `correo`, `ruta_doc`) VALUES (NULL, '".$nom."', '".$ap."', '".$am."', '".$cel."', '".$correo."', '".$ruta."');";
+  $q = "INSERT INTO `prospecto` (`idProspecto`, `nombre`, `ape_pat`, `ape_mat`, `cel`, `correo`, `doc`) VALUES (NULL, '".$nom."', '".$ap."', '".$am."', '".$cel."', '".$correo."', '".$ruta."');";
 			
   echo "valor de la variable q= ".$q;
   echo "<br>";
