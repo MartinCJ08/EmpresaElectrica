@@ -2,7 +2,7 @@
 
 function Conectarse(){
     // Datos de la base de datos
-	$usuario = "";
+	$usuario = "root";//midifique estaba vacio, dio error 6-12
 	$password = "";
 	$servidor = "localhost";
 	$basededatos = "electricabd";
@@ -11,15 +11,16 @@ function Conectarse(){
 	// Selección del a base de datos a utilizar
 	$db = mysqli_select_db( $conexion, $basededatos ) 
           or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
+    echo "Se conecto";
     return $conexion;
 }
 
-function conect($server,$db,$user,$pass,$sql){
+function conect($sql){
 
-    $servername = $server;
-    $database = $db;
-    $username = $user;
-    $password = $pass;
+    $servername = "localhost";
+    $database = "electricabd";
+    $username = "root";
+    $password = "";
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $database);
     // Check connection
