@@ -73,7 +73,7 @@ a {
 
 
 
-<form action="agregarProspecto.php" method="POST">
+<form action="insertProspecto.php" method="POST">
   <div class="container">
     <h1>Registrar</h1>
     <p>Complete los campos para mandar su solicitud</p>

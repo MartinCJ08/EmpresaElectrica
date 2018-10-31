@@ -11,33 +11,6 @@ function Conectarse(){
 	// Selección del a base de datos a utilizar
 	$db = mysqli_select_db( $conexion, $basededatos ) 
           or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
-    echo "Se conecto";
     return $conexion;
 }
-
-function conect($sql){
-
-    $servername = "localhost";
-    $database = "electricabd";
-    $username = "root";
-    $password = "";
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $database);
-    // Check connection
-    if (!$conn) {
-          die("Connection failed: " . mysqli_connect_error());
-    }
-     
-    echo "Connected successfully";
-     
-    $s = $sql;
-    if (mysqli_query($conn, $s)) {
-          echo "New record created successfully";
-    } else {
-          echo "Error: " . $s . "<br>" . mysqli_error($conn);
-    }
-    mysqli_close($conn);
- 
-}
-
 ?>

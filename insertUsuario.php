@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 include("conec.php");
 $link=Conectarse();
@@ -9,16 +9,17 @@ $link=Conectarse();
     $nom = "Monchiro";
   }*/
 
-  $nom=$_POST['nombre'];
-  $ap=@$_POST['ape_pat'];
-  $am=@$_POST['ape_mat'];
+  $correo=@$_POST['correo'];
+  $pass=@$_POST['pass'];
+  
+  /*$am=@$_POST['ape_mat'];
   $correo=@$_POST['correo'];
   $pass=@$_POST['psw'];
   $pass_r=@$_POST['psw-repeat'];
   $cel=@$_POST['cel'];
-  $ruta=@$_POST['ruta_doc'];
+  $ruta=@$_POST['ruta_doc'];*/
   
-  $q = "INSERT INTO `prospecto` (`idProspecto`, `nombre`, `ape_pat`, `ape_mat`, `cel`, `correo`, `doc`) VALUES (NULL, '".$nom."', '".$ap."', '".$am."', '".$cel."', '".$correo."', '".$ruta."');";
+  $q = "INSERT INTO `usuario` (`idUsuario`, `correo`, `pass`, `TipoUsuario_idTipoUsuario`) VALUES (NULL, '".$correo."', '".$pass."', '2');";
 			
   echo "valor de la variable q= ".$q;
   echo "<br>";
@@ -35,5 +36,4 @@ $link=Conectarse();
 	}
   mysqli_close($link);
 
-#  header("Location: index.php");
-?>
+ ?>
