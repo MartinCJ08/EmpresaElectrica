@@ -21,6 +21,97 @@
     @media screen and (max-width: 767px) {
       .row.content {height: auto;} 
     }
+
+    /*Inicio de estilo busqueda*/
+
+/*    .container-1{
+      width: 300px;
+      vertical-align: middle;
+      white-space: nowrap;
+      position: relative;
+    }*/
+    .container-1 input#search{
+      width: 300px;
+      height: 50px;
+      background: #2b303b;
+      border: none;
+      font-size: 10pt;
+      float: left;
+      color: #63717f;
+      padding-left: 45px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      -webkit-transition: background .55s ease;
+      -moz-transition: background .55s ease;
+      -ms-transition: background .55s ease;
+      -o-transition: background .55s ease;
+      transition: background .55s ease;
+    }
+    .container-1 input#search::-webkit-input-placeholder {
+       color: #65737e;
+    }
+     
+    .container-1 input#search:-moz-placeholder { /* Firefox 18- */
+       color: #65737e;  
+    }
+     
+    .container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+       color: #65737e;  
+    }
+     
+    .container-1 input#search:-ms-input-placeholder {  
+       color: #65737e;  
+    }
+    .container-1 input#search::-webkit-input-placeholder {
+       color: #65737e;
+    }
+     
+    .container-1 input#search:-moz-placeholder { /* Firefox 18- */
+       color: #65737e;  
+    }
+     
+    .container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+       color: #65737e;  
+    }
+     
+    .container-1 input#search:-ms-input-placeholder {  
+       color: #65737e;  
+    }
+    .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+        outline:none;
+        background: #ffffff;
+    }
+
+    /*find e estilo de busqueda*/
+
+    /*inicio de etilo tablas*/
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        /*width: 100%;*/
+    }
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #818181;
+        color: white;
+    }
+
+    /*fin de estilo tablas*/
+
+
   </style>
 </head>
 <body>
@@ -80,6 +171,37 @@
         <div id="tabcotizaciones" class="tab-pane fade">
             <h3>Contacto</h3>
             <p>Aquí se muestran datos para contacto</p>
+            
+            <div class="box">
+              <div class="container-1">
+                  <span class="icon"><i class="fa fa-search"></i></span>
+                  <input type="search" id="search" placeholder="Búsqueda..." />
+              </div>
+            </div>
+            <br><br><br><br>
+
+
+            <table id="customers">
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+              </tr>
+              <tr>
+                <td>Tubería PVC 5''</td>
+                <td>Comprada en Mayer's</td>
+                <td>40</td>
+              </tr>
+            </table>
+
+            <p>Costo mínimo:   </p>
+            <p>Costo máximo:   </p>
+            <input type="text" name="">
+            <p>Tiempo estimado:</p>
+            <p>Tipo de pago:</p>
+            <button>Calcular</button>
+            
+
         </div>
 		
 		<div id="tabclientes" class="tab-pane fade">
