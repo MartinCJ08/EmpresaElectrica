@@ -75,8 +75,8 @@ a {
 
 <form action="insertProspecto.php" method="POST">
   <div class="container">
-    <h1>Registrar</h1>
-    <p>Complete los campos para mandar su solicitud</p>
+    <h1></h1>
+    <p>¡Envianos tus datos de empleo!</p>
     <hr>
 
 
@@ -89,18 +89,12 @@ a {
     <label for="ape_mat"><b>Apellido materno</b></label>
     <input type="text" placeholder="" name="ape_mat" required>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="" name="correo" required>
-
-    <label for="psw"><b>Contraseña</b></label>
-    <input type="password" placeholder="" name="psw" required>
-
-    <label for="psw-repeat"><b>Repita contraseña</b></label>
-    <input type="password" placeholder="" name="psw-repeat" required>
 
     <label for="cel"><b>Número de celular</b></label>
     <input type="text" placeholder="" name="cel" required>
 
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="" name="correo" required>
 
     <label for="doc"><b>Solicitud de empleo / Curriculum vitae</b></label>
     <input type="text" placeholder="" name="ruta_doc" required>
@@ -109,7 +103,7 @@ a {
     <!--<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>-->
 
     <!--<button type="submit" class="registerbtn">Registrar</button>-->
-    <input type="submit" name="accion" value="Registrar" class="registerbtn">
+    <input type="submit" name="accion" value="Enviar" class="registerbtn">
   </div>
   
   <div class="container signin">

@@ -5,114 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/admin_style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 550px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-        
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
-    }
-
-    /*Inicio de estilo busqueda*/
-
-/*    .container-1{
-      width: 300px;
-      vertical-align: middle;
-      white-space: nowrap;
-      position: relative;
-    }*/
-    .container-1 input#search{
-      width: 300px;
-      height: 50px;
-      background: #2b303b;
-      border: none;
-      font-size: 10pt;
-      float: left;
-      color: #63717f;
-      padding-left: 45px;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-      -webkit-transition: background .55s ease;
-      -moz-transition: background .55s ease;
-      -ms-transition: background .55s ease;
-      -o-transition: background .55s ease;
-      transition: background .55s ease;
-    }
-    .container-1 input#search::-webkit-input-placeholder {
-       color: #65737e;
-    }
-     
-    .container-1 input#search:-moz-placeholder { /* Firefox 18- */
-       color: #65737e;  
-    }
-     
-    .container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
-       color: #65737e;  
-    }
-     
-    .container-1 input#search:-ms-input-placeholder {  
-       color: #65737e;  
-    }
-    .container-1 input#search::-webkit-input-placeholder {
-       color: #65737e;
-    }
-     
-    .container-1 input#search:-moz-placeholder { /* Firefox 18- */
-       color: #65737e;  
-    }
-     
-    .container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
-       color: #65737e;  
-    }
-     
-    .container-1 input#search:-ms-input-placeholder {  
-       color: #65737e;  
-    }
-    .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
-        outline:none;
-        background: #ffffff;
-    }
-
-    /*find e estilo de busqueda*/
-
-    /*inicio de etilo tablas*/
-    #customers {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        /*width: 100%;*/
-    }
-
-    #customers td, #customers th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-
-    #customers tr:nth-child(even){background-color: #f2f2f2;}
-
-    #customers tr:hover {background-color: #ddd;}
-
-    #customers th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #818181;
-        color: white;
-    }
-
-    /*fin de estilo tablas*/
-
-
-  </style>
 </head>
 <body>
 
@@ -128,10 +23,12 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a data-toggle="tab" href="#">Inicio</a></li>
-        <li><a data-toggle="tab" href="#">Cotizaciones</a></li>
         <li><a data-toggle="tab" href="#">Clientes</a></li>
-        <li><a data-toggle="tab" href="#">Aspirantes</a></li>
+        <li><a data-toggle="tab" href="#">Cotizaciones</a></li>
+        <li><a data-toggle="tab" href="#">Trabajos</a></li>
+        <li><a data-toggle="tab" href="#">Material</a></li>
+        <li><a data-toggle="tab" href="#">Equipo</a></li>
+        <li><a data-toggle="tab" href="#">Prospecto</a></li>
       </ul>
     </div>
   </div>
@@ -142,116 +39,162 @@
     <div class="col-sm-3 sidenav hidden-xs">
       <h2>Logo <br> Instalaciones Eléctricas</h2>
       <ul class="nav nav-pills nav-stacked">
-		<li><a data-toggle="tab" href="#tabinicio">Inicio</a></li>
-        <li><a data-toggle="tab" href="#tabcotizaciones">Cotizaciones</a></li>
-        <li><a data-toggle="tab" href="#tabclientes">Clientes</a></li>
-        <li><a data-toggle="tab" href="#tabaspirantes">Aspirantes</a></li>
+    <li><a data-toggle="tab" href="#tabclientes">Clientes</a></li>
+        <li><a data-toggle="tab" href="#tabcotizacion">Cotizaciones</a></li>
+        <li><a data-toggle="tab" href="#tabtrabajos">Trabajos</a></li>
+        <li><a data-toggle="tab" href="#tabmaterial">Material</a></li>
+        <li><a data-toggle="tab" href="#tabequipo">Equipo</a></li>
+        <li><a data-toggle="tab" href="#tabprospecto">Prospecto</a></li>
       </ul><br>
-	  
-	  
-	  
-	  
+    
+    
+    
+    
     </div>
     <br>
 
-<?php
-  include("conec.php");
-  $link=Conectarse();
   
-  #$query="select * from cliente";
-  #$result=mysqli_query($link,$query);
-?> 
-	
     <div class="tab-content">
-        <div id="tabinicio" class="tab-pane fade">
-            <h3>Inicio</h3>
-            <p>Aquí se muestran datos de la empresa...</p>
-        </div>
-		
-        <div id="tabcotizaciones" class="tab-pane fade">
-            <h3>Contacto</h3>
-            <p>Aquí se muestran datos para contacto</p>
-            
-            <div class="box">
-              <div class="container-1">
-                  <span class="icon"><i class="fa fa-search"></i></span>
-                  <input type="search" id="search" placeholder="Búsqueda..." />
-              </div>
+        <div id="tabclientes" class="tab-pane fade">
+            <center>
+            <h3>Clientes</h3>
+            <p>clientes</p>
+
+            <form>
+                <input type="text" name="search" placeholder="Buscar material..">    
+                <button class="button">Buscar</button>
+                
+                <button class="button">Mostrar todo</button>      
+                <div class="custom-select"><select>
+                    <option value="0">Filtro:</option>
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                </select></div>    
+            </form>
+            <div class="custom-select" style="width:200px;">
+
             </div>
-            <br><br><br><br>
-
-
+            
+            <!--
             <table id="customers">
               <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
               </tr>
               <tr>
-                <td>Tubería PVC 5''</td>
-                <td>Comprada en Mayer's</td>
-                <td>40</td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
-            </table>
-
-            <p>Costo mínimo:   </p>
-            <p>Costo máximo:   </p>
-            <input type="text" name="">
-            <p>Tiempo estimado:</p>
-            <p>Tipo de pago:</p>
-            <button>Calcular</button>
-            
-
-        </div>
-		
-		<div id="tabclientes" class="tab-pane fade">
-            <h3>Login</h3>
-            <p>Aquí se inicia sesión y se registra</p>
-        </div>
-		
-		<div id="tabaspirantes" class="tab-pane fade">
-            <h3>Aspirantes</h3>
-            
-
-            <center>
-              <table border="1" cellspacing="1" cellpadding="1">
-                  <tr bgcolor="1122dd">
-                    <td >&nbsp;idProspecto</td>
-                    <td>&nbsp;nombre&nbsp;</td>
-                    <td>&nbsp;Apellido paterno&nbsp;</td>
-                    <td>&nbsp;apellido materno&nbsp;</td>
-                    <td>&nbsp;Celular&nbsp;</td>
-                    <td>&nbsp;Correo&nbsp;</td>
-                    <td>&nbsp;Documento&nbsp;</td>
-                  </tr>
-            <?php
-              $query="select * from prospecto";
-              $result=mysqli_query($link,$query);
-
-              while($row = mysqli_fetch_array($result)) {
-                 
-                echo "<tr><td align='center' bgcolor='ff2233'>".$row["idProspecto"]."</td>";
-                echo "<td >".$row["nombre"]."</td>";
-                echo "<td>".$row["ape_pat"]."</td>";
-                echo "<td>".$row["ape_mat"]."</td>";
-                echo "<td>".$row["cel"]."</td>";
-                echo "<td>".$row["correo"]."</td>";
-                echo "<td>".$row["doc"]."</td>";
-              }
-               mysqli_free_result($result);
-            ?>
-              </table> 
+            </table>-->
             </center>
-
-
-
-
+        </div>
+    
+        <div id="tabcotizacion" class="tab-pane fade">
+            <h3>cotzacion</h3>
+            <p>cotizacion</p>
+         </div>
+    
+    <div id="tabtrabajos" class="tab-pane fade">
+            <h3>trabajos</h3>
+            <p>trabajos</p>
+        </div>
+    
+    <div id="tabmaterial" class="tab-pane fade">
+            <h3>material</h3>
+            <p>material</p>
+        </div>
+    <div id="tabequipo" class="tab-pane fade">
+            <h3>equipo</h3>
+            <p>equipo</p>
+        </div>
+    <div id="tabprospecto" class="tab-pane fade">
+            <h3>Prospecto</h3>
+            <p>prospecto</p>
         </div>
   </div>
   
 </div>
 
 </div>
+
+
+<script type="text/javascript">
+var x, i, j, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 0; j < selElmnt.length; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < s.length; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            for (k = 0; k < y.length; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>
+
 </body>
 <footer>
 
