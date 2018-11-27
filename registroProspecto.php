@@ -97,7 +97,7 @@ a {
     <input type="text" placeholder="" name="correo" required>
 
     <label for="doc"><b>Solicitud de empleo / Curriculum vitae</b></label>
-    <input type="text" placeholder="" name="ruta_doc" required>
+    <input name="doc" type="file" accept="application/pdf" />
 
     <hr>
     <!--<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>-->

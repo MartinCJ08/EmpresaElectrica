@@ -16,9 +16,9 @@ $link=Conectarse();
   $pass=@$_POST['psw'];
   $pass_r=@$_POST['psw-repeat'];
   $cel=@$_POST['cel'];
-  $ruta=@$_POST['ruta_doc'];
+  $ruta=@$_FILES['doc'];
   
-  $q = "INSERT INTO `prospecto` (`idProspecto`, `nombre`, `ape_pat`, `ape_mat`, `cel`, `correo`, `doc`) VALUES (NULL, '".$nom."', '".$ap."', '".$am."', '".$cel."', '".$correo."', '".$ruta."');";
+  $q = "INSERT INTO `prospecto` (`idProspecto`, `nombre`, `ape_pat`, `ape_mat`, `cel`, `correo`, `doc`) VALUES (NULL, '".$nom."', '".$ap."', '".$am."', '".$cel."', '".$correo."', ".$ruta.");";
 			
   echo "valor de la variable q= ".$q;
   echo "<br>";
