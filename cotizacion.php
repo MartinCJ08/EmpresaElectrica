@@ -66,7 +66,7 @@ input[type=submit]:hover {
   		</div>
   		<div class="col-25">
   			<!--<button>Buscar</button>-->
-  			<input type="submit" value="Submit">
+  			<input type="submit" value="Buscar">
   		</div>
   	</div>
   	<!--Tabla-->
@@ -95,7 +95,7 @@ input[type=submit]:hover {
         <label for="lname">Costo máximo:</label>
       </div>
       <div class="col-40">
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <input type="text" id="lname" name="lastname" placeholder="5..">
       </div>      
     </div>
     <div class="row">
@@ -110,7 +110,7 @@ input[type=submit]:hover {
       </div>
     </div>
     <div class="row">
-      <input type="submit" value="Submit">
+      <input type="submit" value="Cotizar">
     </div>
   </form>
 </div>
