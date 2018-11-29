@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: electricdb
 -- ------------------------------------------------------
@@ -18,6 +18,7 @@
 --
 -- Table structure for table `bit_cliente`
 --
+use electricdb;
 
 DROP TABLE IF EXISTS `bit_cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

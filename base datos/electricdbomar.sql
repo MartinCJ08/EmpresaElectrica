@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
@@ -21,106 +21,109 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `electricdb`
 --
-
+USE `electricdb`;
 DELIMITER $$
 --
 -- Procedimientos
 --
 DROP PROCEDURE IF EXISTS `agregar_cliente`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `agregar_cliente` (IN `nom` VARCHAR(30), `a_p` VARCHAR(20), `a_m` VARCHAR(20), `dir` VARCHAR(45), `cel` VARCHAR(10), `correo` VARCHAR(30), `usuar` INT)  BEGIN
-	insert into cliente (nombre,ape_pat,ape_mat,direccion,cel,correo,Usuario_idUsuario)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_cliente` (IN `nom` VARCHAR(30), `a_p` VARCHAR(20), `a_m` VARCHAR(20), `dir` VARCHAR(45), `cel` VARCHAR(10), `correo` VARCHAR(30), `usuar` INT)  BEGIN
+	insert into `electricdb`.`cliente` (nombre,ape_pat,ape_mat,direccion,cel,correo,Usuario_idUsuario)
 	values(nom,a_p,a_m,dir,cel,correo,usuar);
 END$$
 
 DROP PROCEDURE IF EXISTS `agregar_cotizacion`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `agregar_cotizacion` (IN `co_min` DOUBLE, `co_max` DOUBLE, `distancia` INT, `t_s` INT, `ti_pa` INT, `clien` INT)  BEGIN
-	insert into cotizacion (costo_min,costo_max,distancia,tiempo_servicio,TipoPago_idTipoPago,Cliente_idCliente) 
-    values(co_min,co_max,distancia,t_s,ti_pa,clien);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_cotizacion` (IN `co_min` DOUBLE, `co_max` DOUBLE, `distancia` INT, `t_s` INT, `ti_pa` INT, `clien` INT)  BEGIN
+	insert into `electricdb`.`cotizacion` (costo_min,costo_max,distancia,tiempo_servicio,TipoPago_idTipoPago,Cliente_idCliente) 
+    	values(co_min,co_max,distancia,t_s,ti_pa,clien);
 END$$
 
 DROP PROCEDURE IF EXISTS `agregar_empleado`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `agregar_empleado` (IN `nomb` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `tel` VARCHAR(45), `dir` VARCHAR(45), `correo` VARCHAR(45), `rfc` VARCHAR(45), `usuar` INT)  BEGIN
-	insert into empleado (nombre,ape_pat,ape_mat,telefono,direccion,email,rfc,Usuario_idUsuario) 
-    values (nomb,a_p,a_m,tel,dir,correo,rfc,usuar);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_empleado` (IN `nomb` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `tel` VARCHAR(45), `dir` VARCHAR(45), `correo` VARCHAR(45), `rfc` VARCHAR(45), `usuar` INT)  BEGIN
+	insert into `electricdb`.`empleado` (nombre,ape_pat,ape_mat,telefono,direccion,email,rfc,Usuario_idUsuario) 
+    	values (nomb,a_p,a_m,tel,dir,correo,rfc,usuar);
 END$$
 
 DROP PROCEDURE IF EXISTS `agregar_equipo`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `agregar_equipo` (IN `descrip` VARCHAR(45), `foto` VARCHAR(45), `carac` VARCHAR(45), `trab` INT, `trabit` INT)  BEGIN
-	insert into equipo (descripcion,foto,caracteristicas,Trabajo_idTrabajo,Trabajo_TipoTrabajo_idTipoTrabajo)
-    values(descrip,foto,carac,trab,trabit);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_equipo` (IN `descrip` VARCHAR(45), `foto` VARCHAR(45), `carac` VARCHAR(45), `trab` INT, `trabit` INT)  BEGIN
+	insert into `electricdb`.`equipo` (descripcion,foto,caracteristicas,Trabajo_idTrabajo,Trabajo_TipoTrabajo_idTipoTrabajo)
+    	values(descrip,foto,carac,trab,trabit);
 END$$
 
 DROP PROCEDURE IF EXISTS `agregar_material`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `agregar_material` (IN `nom` VARCHAR(45), `descp` VARCHAR(45), `prec` DOUBLE)  BEGIN
-	insert into material (nombre,descripcion,precio)values(nom,descp,prec);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_material` (IN `nom` VARCHAR(45), `descp` VARCHAR(45), `prec` DOUBLE)  BEGIN
+	insert into `electricdb`.`material` (nombre,descripcion,precio)
+	values(nom,descp,prec);
 END$$
 
 DROP PROCEDURE IF EXISTS `agregar_prospecto`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `agregar_prospecto` (IN `nom` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `cel` VARCHAR(45), `correo` VARCHAR(45), `doc` VARCHAR(45))  BEGIN
-	INSERT INTO prospecto (nombre,ape_pat,ape_mat,cel,correo,doc) values (nom,a_p,a_m,cel,correo,doc);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_prospecto` (IN `nom` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `cel` VARCHAR(45), `correo` VARCHAR(45), `doc` VARCHAR(45))  BEGIN
+	INSERT INTO `electricdb`.`prospecto` (nombre,ape_pat,ape_mat,cel,correo,doc) 
+	values (nom,a_p,a_m,cel,correo,doc);
 END$$
 
 DROP PROCEDURE IF EXISTS `agregar_usuario`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `agregar_usuario` (IN `correo` VARCHAR(45), `pass` VARCHAR(45), `TipoUsuario` INT)  BEGIN
-	insert into usuario (correo,pass,TipoUsuario_idTipoUsuario)values(correo, pass, TipoUsuario);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_usuario` (IN `correo` VARCHAR(45), `pass` VARCHAR(45), `TipoUsuario` INT)  BEGIN
+	insert into `electricdb`.`usuario` (correo,pass,TipoUsuario_idTipoUsuario)
+	values(correo, pass, TipoUsuario);
 END$$
 
 DROP PROCEDURE IF EXISTS `Cliente_Cotizacion`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `Cliente_Cotizacion` (IN `id` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Cliente_Cotizacion` (IN `id` INT)  BEGIN
 	select a.idCliente,a.nombre,b.tiempo_servicio from cliente a inner join
     cotizacion b on a.Cotizacion_idCotizacion=b.Cotizacion where idCliente = id;
 END$$
 
 DROP PROCEDURE IF EXISTS `eliminar_cliente`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `eliminar_cliente` (IN `id` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_cliente` (IN `id` INT)  BEGIN
 	delete from cliente where idCliente = id;
 END$$
 
 DROP PROCEDURE IF EXISTS `eliminar_cotizacion`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `eliminar_cotizacion` (IN `idcot` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_cotizacion` (IN `idcot` INT)  BEGIN
 	delete from cotizacion where idCotizacion=idcot;
 END$$
 
 DROP PROCEDURE IF EXISTS `eliminar_empleado`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `eliminar_empleado` (IN `idemp` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_empleado` (IN `idemp` INT)  BEGIN
 	delete from empleado where idEmpleado = idemp;
 END$$
 
 DROP PROCEDURE IF EXISTS `eliminar_equipo`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `eliminar_equipo` (IN `ideq` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_equipo` (IN `ideq` INT)  BEGIN
 	delete from equipo where idEquipo = ideq;
 END$$
 
 DROP PROCEDURE IF EXISTS `eliminar_material`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `eliminar_material` (IN `idmat` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_material` (IN `idmat` INT)  BEGIN
 	delete from material where idMaterial = idmat;
 END$$
 
 DROP PROCEDURE IF EXISTS `eliminar_prospecto`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `eliminar_prospecto` (IN `idpros` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_prospecto` (IN `idpros` INT)  BEGIN
 	delete from pospecto where idProspecto = idpros;
 END$$
 
 DROP PROCEDURE IF EXISTS `eliminar_usuario`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `eliminar_usuario` (IN `iduser` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_usuario` (IN `iduser` INT)  BEGIN
 	delete from usuario where idUsuario = iduser;
 END$$
 
 DROP PROCEDURE IF EXISTS `modficar_usuario`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modficar_usuario` (IN `idu` INT, `cor` VARCHAR(45), `pass` VARCHAR(45), `tu_idtu` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modficar_usuario` (IN `idu` INT, `cor` VARCHAR(45), `pass` VARCHAR(45), `tu_idtu` INT)  BEGIN
 	update usuario set correo=cor, pass=pass,TipoUsuario_idTipoUsuario=tu_idtu
     where idUsuario = idu;
 END$$
 
 DROP PROCEDURE IF EXISTS `modificar_cliente`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_cliente` (IN `idc` INT, `nom` VARCHAR(30), `a_p` VARCHAR(20), `a_m` VARCHAR(20), `dir` VARCHAR(45), `cel` VARCHAR(10), `cor` VARCHAR(30), `us_idu` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_cliente` (IN `idc` INT, `nom` VARCHAR(30), `a_p` VARCHAR(20), `a_m` VARCHAR(20), `dir` VARCHAR(45), `cel` VARCHAR(10), `cor` VARCHAR(30), `us_idu` INT)  BEGIN
 	update cliente set nombre=nom, ape_pat=a_p, 
     ape_mat=a_m,direccion=dir,correo=cor,
     Usuario_idUsuario=us_idu where idCliente=idc;
 END$$
 
 DROP PROCEDURE IF EXISTS `modificar_cotizacion`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_cotizacion` (IN `idc` INT, `c_mi` DOUBLE, `c_ma` DOUBLE, `dis` INT, `t_s` INT, `t_idtp` INT, `c_idc` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_cotizacion` (IN `idc` INT, `c_mi` DOUBLE, `c_ma` DOUBLE, `dis` INT, `t_s` INT, `t_idtp` INT, `c_idc` INT)  BEGIN
 	update cotizacion set costo_min=c_mi,costo_max=c_ma,
     distancia=dis,tiempo_servicio=t_s,
     TipoPago_idTipoPago=t_idtp,Cliente_idCliente=c_idc
@@ -128,7 +131,7 @@ CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_cotizacion` (IN `idc` I
 END$$
 
 DROP PROCEDURE IF EXISTS `modificar_empleado`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_empleado` (IN `ide` INT, `nom` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `tel` VARCHAR(45), `dir` VARCHAR(45), `em` VARCHAR(45), `rfc` VARCHAR(45), `u_idu` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_empleado` (IN `ide` INT, `nom` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `tel` VARCHAR(45), `dir` VARCHAR(45), `em` VARCHAR(45), `rfc` VARCHAR(45), `u_idu` INT)  BEGIN
 	update empleado set nombre=nom,ape_pat=a_p,
     ape_mat=a_m,telefono=tel,direccion=dir,email=em,
     rfc=rfc,Usuario_idUsuario=u_idu
@@ -136,7 +139,7 @@ CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_empleado` (IN `ide` INT
 END$$
 
 DROP PROCEDURE IF EXISTS `modificar_equipo`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_equipo` (IN `ide` INT, `des` VARCHAR(45), `fot` VARCHAR(45), `carac` VARCHAR(45), `t_idt` INT, `t_tt_idtt` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_equipo` (IN `ide` INT, `des` VARCHAR(45), `fot` VARCHAR(45), `carac` VARCHAR(45), `t_idt` INT, `t_tt_idtt` INT)  BEGIN
 	update equipo set descripcion=des,foto=fot,
     caracteristicas=carac,Trabajo_idTrabajo=t_idt,
     Trabajo_TipoTrabajo_idTipoTrabajo=t_tt_idtt
@@ -144,13 +147,13 @@ CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_equipo` (IN `ide` INT, 
 END$$
 
 DROP PROCEDURE IF EXISTS `modificar_material`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_material` (IN `idm` INT, `nom` VARCHAR(45), `des` VARCHAR(45), `prec` DOUBLE)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_material` (IN `idm` INT, `nom` VARCHAR(45), `des` VARCHAR(45), `prec` DOUBLE)  BEGIN
 	update material set nombre=nom, descripcion=des,
     precio=prec where idMaterial=idm;
 END$$
 
 DROP PROCEDURE IF EXISTS `modificar_prospecto`$$
-CREATE DEFINER=`omarbd`@`localhost` PROCEDURE `modificar_prospecto` (IN `idp` INT, `nom` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `cel` VARCHAR(45), `corr` VARCHAR(45), `doc` VARCHAR(45))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_prospecto` (IN `idp` INT, `nom` VARCHAR(45), `a_p` VARCHAR(45), `a_m` VARCHAR(45), `cel` VARCHAR(45), `corr` VARCHAR(45), `doc` VARCHAR(45))  BEGIN
 	update prospecto set nombre=nom,ape_pat=a_p,
     ape_mat=a_m,cel=cel,correo=corr,doc=doc
     where idProspecto=idp;
@@ -160,7 +163,7 @@ END$$
 -- Funciones
 --
 DROP FUNCTION IF EXISTS `contar_usuarios`$$
-CREATE DEFINER=`omarbd`@`localhost` FUNCTION `contar_usuarios` () RETURNS INT(11) BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `contar_usuarios` () RETURNS INT(11) BEGIN
 
 	declare conta int;
 	declare userid text;
@@ -186,14 +189,14 @@ RETURN conta;
 END$$
 
 DROP FUNCTION IF EXISTS `costos_cotizacion`$$
-CREATE DEFINER=`omarbd`@`localhost` FUNCTION `costos_cotizacion` () RETURNS INT(11) BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `costos_cotizacion` () RETURNS INT(11) BEGIN
 declare suma int;
 	select sum(costo_max) into suma from cotizacion;
 RETURN suma;
 END$$
 
 DROP FUNCTION IF EXISTS `ganacias_material`$$
-CREATE DEFINER=`omarbd`@`localhost` FUNCTION `ganacias_material` (`id_material` INT) RETURNS INT(11) BEGIN
+CREATE DEFINER=`root`@`localhost` FUNCTION `ganacias_material` (`id_material` INT) RETURNS INT(11) BEGIN
 	declare ganancias int;
 	select a.SUM(precio) into ganancias from material a inner join cotizacion_has_material b
     where idMaterial = id_material and whereMaterial_idMaterial=idMaterial;
@@ -248,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 DROP TRIGGER IF EXISTS `cliente_AFTER_DELETE`;
 DELIMITER $$
 CREATE TRIGGER `cliente_AFTER_DELETE` AFTER DELETE ON `cliente` FOR EACH ROW BEGIN
-	insert into bitacora(movimiento,usuario,fecha,concepto,tabla)
+	insert into `electricdb`.`bitacora`(movimiento,usuario,fecha,concepto,tabla)
 	values('cliente eliminado',user(),now(),old.nombre,'cliente');
 END
 $$
@@ -256,7 +259,7 @@ DELIMITER ;
 DROP TRIGGER IF EXISTS `cliente_AFTER_INSERT`;
 DELIMITER $$
 CREATE TRIGGER `cliente_AFTER_INSERT` AFTER INSERT ON `cliente` FOR EACH ROW BEGIN
-	insert into bitacora(movimiento,usuario,fecha,concepto,tabla)
+	insert into `electricdb`.`bitacora`(movimiento,usuario,fecha,concepto,tabla)
 	values('cliente agregado',user(),now(),new.nombre,'cliente');
 END
 $$
@@ -264,7 +267,7 @@ DELIMITER ;
 DROP TRIGGER IF EXISTS `cliente_AFTER_UPDATE`;
 DELIMITER $$
 CREATE TRIGGER `cliente_AFTER_UPDATE` AFTER UPDATE ON `cliente` FOR EACH ROW BEGIN
-	insert into bitacora(movimiento,usuario,fecha,concepto,tabla)
+	insert into `electricdb`.`bitacora`(movimiento,usuario,fecha,concepto,tabla)
 	values('cliente actualizado',user(),now(),new.nombre,'cliente');
 END
 $$
@@ -717,7 +720,7 @@ CREATE TABLE IF NOT EXISTS `usuario_tipo` (
 --
 DROP TABLE IF EXISTS `cliente_trabajo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIEW `cliente_trabajo`  AS  select `a`.`nombre` AS `nombre del cliente`,`a`.`cel` AS `cel del cliente`,`b`.`dirección` AS `dirección de trabajo` from (`cliente` `a` join `trabajo` `b` on((`a`.`idCliente` = `b`.`Cliente_idCliente`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cliente_trabajo`  AS  select `a`.`nombre` AS `nombre del cliente`,`a`.`cel` AS `cel del cliente`,`b`.`dirección` AS `dirección de trabajo` from (`cliente` `a` join `trabajo` `b` on((`a`.`idCliente` = `b`.`Cliente_idCliente`))) ;
 
 -- --------------------------------------------------------
 
@@ -726,7 +729,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIE
 --
 DROP TABLE IF EXISTS `cotizaciones_organizadas`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIEW `cotizaciones_organizadas`  AS  select `cotizacion`.`idCotizacion` AS `idCotizacion`,sum(`cotizacion`.`costo_max`) AS `sum(costo_max)` from `cotizacion` group by `cotizacion`.`idCotizacion` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cotizaciones_organizadas`  AS  select `cotizacion`.`idCotizacion` AS `idCotizacion`,sum(`cotizacion`.`costo_max`) AS `sum(costo_max)` from `cotizacion` group by `cotizacion`.`idCotizacion` ;
 
 -- --------------------------------------------------------
 
@@ -735,7 +738,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIE
 --
 DROP TABLE IF EXISTS `cotizacion_tipopago`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIEW `cotizacion_tipopago`  AS  select `a`.`idCotizacion` AS `Cotizacion`,`b`.`descripcion` AS `Tipo de Pago` from (`cotizacion` `a` join `tipopago` `b` on((`a`.`TipoPago_idTipoPago` = `b`.`idTipoPago`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cotizacion_tipopago`  AS  select `a`.`idCotizacion` AS `Cotizacion`,`b`.`descripcion` AS `Tipo de Pago` from (`cotizacion` `a` join `tipopago` `b` on((`a`.`TipoPago_idTipoPago` = `b`.`idTipoPago`))) ;
 
 -- --------------------------------------------------------
 
@@ -744,7 +747,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIE
 --
 DROP TABLE IF EXISTS `equipo_trabajo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIEW `equipo_trabajo`  AS  select `a`.`descripcion` AS `descripcion de equipo`,`b`.`idtrabajo` AS `id trabajo` from (`equipo` `a` join `trabajo` `b` on((`a`.`Trabajo_idtrabajo` = `b`.`idtrabajo`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `equipo_trabajo`  AS  select `a`.`descripcion` AS `descripcion de equipo`,`b`.`idtrabajo` AS `id trabajo` from (`equipo` `a` join `trabajo` `b` on((`a`.`Trabajo_idtrabajo` = `b`.`idtrabajo`))) ;
 
 -- --------------------------------------------------------
 
@@ -753,7 +756,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIE
 --
 DROP TABLE IF EXISTS `usuario_empleado`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIEW `usuario_empleado`  AS  select `a`.`nombre` AS `empleado`,`b`.`correo` AS `usuario` from (`empleado` `a` join `usuario` `b` on((`a`.`Usuario_idUsuario` = `b`.`idUsuario`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuario_empleado`  AS  select `a`.`nombre` AS `empleado`,`b`.`correo` AS `usuario` from (`empleado` `a` join `usuario` `b` on((`a`.`Usuario_idUsuario` = `b`.`idUsuario`))) ;
 
 -- --------------------------------------------------------
 
@@ -762,7 +765,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIE
 --
 DROP TABLE IF EXISTS `usuario_tipo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`omarbd`@`localhost` SQL SECURITY DEFINER VIEW `usuario_tipo`  AS  select `a`.`idUsuario` AS `idUsuario`,`b`.`descripcion` AS `descripcion` from (`usuario` `a` join `tipousuario` `b`) where (`a`.`TipoUsuario_idTipoUsuario` = `b`.`idTipoUsuario`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuario_tipo`  AS  select `a`.`idUsuario` AS `idUsuario`,`b`.`descripcion` AS `descripcion` from (`usuario` `a` join `tipousuario` `b`) where (`a`.`TipoUsuario_idTipoUsuario` = `b`.`idTipoUsuario`) ;
 
 --
 -- Restricciones para tablas volcadas
