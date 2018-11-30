@@ -20,8 +20,7 @@
 idMaterial:
  <input type="text" name="idc" size="5" maxlength="10">
  <input class="buttonSha" type="submit" name="accion" value="Buscar">
-
-<a class="buttonSha" href="materialAdmon.php">Regresar</a>
+ <a class="buttonSha" href="materialAdmon.php">Regresar</a>
 </FORM>
 </div>
 </body>

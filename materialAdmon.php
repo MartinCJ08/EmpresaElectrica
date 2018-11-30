@@ -40,14 +40,11 @@ $db = mysqli_select_db( $conexion, $basededatos )
         . " a la base de datos" );
 	// establecer y realizar consulta. guardamos en variable.
 $consulta = "SELECT * FROM material";
-
 $resultado = mysqli_query( $conexion, $consulta )
         or die ( "Algo ha ido mal en la consulta a material en la base de datos");
-
 //echo "consulta= ".$consulta ."<br>";
 	// Motrar el resultado de los registro de la base de datos
 	// Encabezado de la tabla
-
 echo"<center>";
 echo "<table>";
 	echo "<tr>";
@@ -74,10 +71,8 @@ echo "<table>";
 		echo "<td align='center'>".$registro['codigo']. "</td>";
 		echo "<td align='center'>".$registro['precio']. "</td>";
 		echo "<td align='center'>".$registrodos['unidad']. "</td>";
-
 	echo "</tr>";
 		}
-
 	echo "</table>"; 
         
  ?>       
