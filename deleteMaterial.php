@@ -30,18 +30,25 @@
          <td>&nbsp;descripcion&nbsp;</td>
          <td>&nbsp;codigo&nbsp;</td>
          <td>&nbsp;precio&nbsp;</td>
-         <td>&nbsp;UnidadMaterial_idUnidadMaterial&nbsp;</td>
+         <td>&nbsp;unidad&nbsp;</td>
        </tr>
        
 <?php
   
   while($row = mysqli_fetch_array($result)) {
+	  
+	$uni = "select * from unidadmaterial where idUnidadMaterial =".$row['UnidadMaterial_idUnidadMaterial'].";";
+	#echo $uni ;
+	$query_uni = mysqli_query( $link, $uni)
+	or die ( "Algo ha ido mal en la consulta a material en la base de datos");
+	$rowdos = mysqli_fetch_array($query_uni);
+	  
       echo "<tr><td> "
       . "<a href=\"deleteMaterialDb.php?idc=".$row["idMaterial"]."\"> ".$row["idMaterial"]  ."</td>";
       echo " <td> ".$row["descripcion"]  . "</td>";
       echo " <td> ".$row["codigo"]  . "</td>";
       echo " <td> ".$row["precio"]  . "</td>";
-      echo "<td>".$row["UnidadMaterial_idUnidadMaterial"]."</td>";
+      echo "<td>".$rowdos["unidad"]."</td>";
       echo "</tr>";
   } 
   mysqli_free_result($result);

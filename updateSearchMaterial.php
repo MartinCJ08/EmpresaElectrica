@@ -33,11 +33,21 @@
     <td>&nbsp;Descripcion&nbsp;</td>
     <td>&nbsp;Codigo&nbsp;</td>
     <td>&nbsp;Precio&nbsp;</td>
-    <td>&nbsp;UnidadMaterial_idUnidadMaterial&nbsp;</td>
+    <td>&nbsp;unidad&nbsp;</td>
 </tr>
 <form name="form1" method="post" action="upMaterialScript.php">
 <?php
    while($row = mysqli_fetch_array($result)){  
+	$uni = "select * from unidadmaterial where idUnidadMaterial =".$row['UnidadMaterial_idUnidadMaterial'].";";
+	#echo $uni ;
+	$query_uni = mysqli_query( $link, $uni)
+		or die ( "Algo ha ido mal en la consulta a material en la base de datos");
+	$rowdos = mysqli_fetch_array($query_uni);
+   
+   
+   
+   
+   
 	#$nom=$row["descripcion"];
 	echo "<tr><td><INPUT TYPE='text' NAME='id' SIZE='6' MAXLENGTH='40' value=". $row["idMaterial"] .">  </td>";
 #echo "<td><INPUT TYPE='text' NAME='id' SIZE='6' MAXLENGTH='40' value=". $row["descripcion"] .">  </td>";	
@@ -46,7 +56,13 @@
 	
 	echo "<td><INPUT TYPE='text' NAME='cod' SIZE='20' MAXLENGTH='30' value=". $row["codigo"] ." ></td>";
 	echo "<td><INPUT TYPE='text' NAME='prec' SIZE='20' MAXLENGTH='30' value=". $row["precio"] ." ></td>";      
-	echo "<td><INPUT TYPE='text' NAME='unmat' SIZE='10' MAXLENGTH='30' value=". $row["UnidadMaterial_idUnidadMaterial"] ." ></td>";
+	
+	echo "<td><select name ='unmat'>
+		<option value='1'>PIEZA</option>
+		<option value='2'>Ml</option> </select> </td>";
+	
+	#echo "<td><INPUT TYPE='text' NAME='unmat' SIZE='10' MAXLENGTH='30' value=". $rowdos["unidad"] ." ></td>";
+	
 	echo "</tr>";
 }
    
