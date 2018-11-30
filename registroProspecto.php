@@ -3,7 +3,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
-
+<link rel="stylesheet" type="text/css" href="css/page_style.css">
+<!--
 <style>
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -67,7 +68,7 @@ a {
     background-color: #f1f1f1;
     text-align: center;
 }
-</style>
+</style>-->
 </head>
 <body>
 
@@ -105,10 +106,10 @@ a {
     <!--<button type="submit" class="registerbtn">Registrar</button>-->
     <input type="submit" name="accion" value="Enviar" class="registerbtn">
   </div>
-  
+  <!--
   <div class="container signin">
     <p>¿Ya tienes una cuenta? <a href="#">Ingresa aquí</a>.</p>
-  </div>
+  </div>--> 
 </form>
 
 </body>
