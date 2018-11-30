@@ -33,10 +33,15 @@ $link=Conectarse();
   else {
 	 echo " query sin realizar  verificar query";
 	}
-  
-
+  /*
+  $carpeta = "files/";
+  opendir($carpeta);
+  $destino = $carpeta.$_FILES['archivo']['name'];
+  copy($_FILES['archivo']['tmp_name'],$destino);
+  echo "Archivo subido exitosamente";
+*/
 
 mysqli_close($link);
 
-#  header("Location: index.php");
+header("Location: index.php");
 ?>
