@@ -397,15 +397,17 @@
 -->
 <center>
     <div id="contact">
-      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p>Contáctanos y te responderemos lo más pronto posible! .</p>
       <p><span class="glyphicon glyphicon-map-marker"></span> Chihuahua, MX</p>
       <p><span class="glyphicon glyphicon-phone"></span> +52 (614) 229 89 83 </p>
       <p><span class="glyphicon glyphicon-envelope"></span> mauro.q77@hotmail.com</p>
     </div>
-</center>
+
 <!-- Add Google Maps -->
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.6254293408524!2d-106.10891698491587!3d28.700849382390913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDQyJzAzLjEiTiAxMDbCsDA2JzI0LjIiVw!5e0!3m2!1ses!2smx!4v1540484985903" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-<div id="googleMap"  style="height:400px;width:100%;"></div>
+<div id="googleMap"  style="height:400px;width:100%;">
+  </center>
+</div>
 <script>
 function myMap() {
 var myCenter = new google.maps.LatLng(28.700849396750705,-106.10672829035994);

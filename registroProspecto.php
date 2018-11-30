@@ -73,7 +73,7 @@ a {
 
 
 
-<form action="insertProspecto.php" method="POST">
+<form action="insertProspecto.php" method="POST" enctype="multipart/form-data">
   <div class="container">
     <h1></h1>
     <p>¡Envianos tus datos de empleo!</p>
@@ -96,8 +96,8 @@ a {
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="" name="correo" required>
 
-    <label for="doc"><b>Solicitud de empleo / Curriculum vitae</b></label>
-    <input type="text" placeholder="" name="ruta_doc" required>
+    <label for="archivo"><b>Solicitud de empleo / Curriculum vitae</b></label>
+    <input name="archivo" id="archivo" type="file" accept="application/pdf" />
 
     <hr>
     <!--<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>-->

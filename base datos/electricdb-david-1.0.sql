@@ -1,8 +1,10 @@
-﻿-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `electricdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `electricdb`;
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: electricdb
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.32-MariaDB
+-- Server version	5.7.18-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,7 +20,6 @@
 --
 -- Table structure for table `bit_cliente`
 --
-use electricdb;
 
 DROP TABLE IF EXISTS `bit_cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -111,7 +112,7 @@ CREATE TABLE `bitacora` (
   `concepto` varchar(45) NOT NULL,
   `tabla` varchar(45) NOT NULL,
   PRIMARY KEY (`idBitacora`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +121,7 @@ CREATE TABLE `bitacora` (
 
 LOCK TABLES `bitacora` WRITE;
 /*!40000 ALTER TABLE `bitacora` DISABLE KEYS */;
-INSERT INTO `bitacora` VALUES (1,'usuario agregado','root@localhost','2018-11-24 19:15:55','correo2@correos.com','usuario'),(2,'usuario agregado','root@localhost','2018-11-24 19:18:33','correos3@correos.com','usuario'),(3,'usuario agregado','root@localhost','2018-11-24 19:18:33','','usuario'),(4,'cliente agregado','root@localhost','2018-11-24 19:21:10','Alan','cliente'),(5,'usuario eliminado','root@localhost','2018-11-24 19:33:18','','usuario'),(6,'usuario actualizado','root@localhost','2018-11-24 19:33:18','correos3@correos.com','usuario'),(7,'cliente actualizado','root@localhost','2018-11-24 19:38:57','Alan','cliente'),(8,'cliente agregado','root@localhost','2018-11-24 19:46:14','Cliente: RaulMendez','cliente'),(9,'cliente actualizado','root@localhost','2018-11-24 19:49:11','Cliente: RonchoMendez id Cliente:3','cliente'),(10,'cliente actualizado','root@localhost','2018-11-24 19:49:42','Cliente: RolasMendez, id Cliente:3','cliente'),(11,'cliente actualizado','root@localhost','2018-11-24 19:50:18','Cliente: Rolas2 Mendez, id Cliente:3','cliente'),(12,'usuario agregado','root@localhost','2018-11-24 19:52:24','sincorreo@correo.com','usuario'),(13,'cliente agregado','root@localhost','2018-11-24 19:53:51','Cliente: PonchoPencho id Cliente:4','cliente'),(14,'cliente eliminado','root@localhost','2018-11-24 19:55:05','Cliente: Poncho Pencho, celular: 555','cliente'),(15,'usuario agregado','root@localhost','2018-11-24 20:03:06','correo: correofalso@gmail.com, Tipo Usuario2','usuario'),(16,'usuario actualizado','root@localhost','2018-11-24 20:04:35','correomasfalso@gmail.com Id Usuario: 5','usuario'),(17,'cliente agregado','root@localhost','2018-11-26 15:06:01','Cliente: DaViDrivera ,id Cliente:5','cliente'),(18,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: PEDRO Perez, id Cliente:1','cliente'),(19,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ALAN Lopez, id Cliente:2','cliente'),(20,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ROLAS2 Mendez, id Cliente:3','cliente'),(21,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: DAVID rivera, id Cliente:5','cliente'),(22,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(23,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(24,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(25,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(26,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(27,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(28,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(29,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(30,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(31,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(32,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(33,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(34,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(35,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(36,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(37,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(38,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(39,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(40,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(41,'cliente actualizado','root@localhost','2018-11-26 15:06:02','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(42,'cliente agregado','root@localhost','2018-11-26 15:08:02','Cliente: DaViDEnriquez ,id Cliente:6','cliente'),(43,'cliente actualizado','root@localhost','2018-11-26 15:08:02','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(44,'cliente actualizado','root@localhost','2018-11-26 15:08:02','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(45,'cliente actualizado','root@localhost','2018-11-26 15:08:02','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(46,'cliente actualizado','root@localhost','2018-11-26 15:08:02','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(47,'cliente actualizado','root@localhost','2018-11-26 15:08:02','Cliente: DAVID Enriquez, id Cliente:6','cliente'),(48,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(49,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(50,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(51,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(52,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID ENRIQUEZ, id Cliente:6','cliente'),(53,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(54,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(55,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(56,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(57,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID ENRIQUEZ, id Cliente:6','cliente'),(58,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(59,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(60,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(61,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(62,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID ENRIQUEZ, id Cliente:6','cliente'),(63,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(64,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(65,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(66,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(67,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID ENRIQUEZ, id Cliente:6','cliente'),(68,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: PEDRO PEREZ, id Cliente:1','cliente'),(69,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ALAN LOPEZ, id Cliente:2','cliente'),(70,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: ROLAS2 MENDEZ, id Cliente:3','cliente'),(71,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID RIVERA, id Cliente:5','cliente'),(72,'cliente actualizado','root@localhost','2018-11-26 15:08:03','Cliente: DAVID ENRIQUEZ, id Cliente:6','cliente'),(73,'empleado agregado','root@localhost','2018-11-26 15:39:58','martin','empleado'),(74,'empleado actualizado','root@localhost','2018-11-26 15:39:58','MARTIN','empleado'),(75,'empleado actualizado','root@localhost','2018-11-26 15:39:59','MARTIN','empleado'),(76,'empleado actualizado','root@localhost','2018-11-26 15:39:59','MARTIN','empleado'),(77,'empleado actualizado','root@localhost','2018-11-26 15:39:59','MARTIN','empleado'),(78,'empleado actualizado','root@localhost','2018-11-26 15:39:59','MARTIN','empleado'),(79,'empleado actualizado','root@localhost','2018-11-26 15:39:59','MARTIN','empleado'),(80,'empleado actualizado','root@localhost','2018-11-26 15:39:59','MARTIN','empleado'),(81,'cliente actualizado','root@localhost','2018-11-26 17:55:37','Cliente: DAVID ENRIQUEZ, id Cliente:6','cliente'),(82,'cliente eliminado','root@localhost','2018-11-26 17:58:22','Cliente: DAVID ENRIQUEZ, celular: 6142250940','cliente'),(83,'cliente agregado','root@localhost','2018-11-26 17:59:50','Cliente: pedroortega ,id Cliente:6','cliente'),(84,'empleado agregado','root@localhost','2018-11-26 18:47:23','DAVID','empleado');
+INSERT INTO `bitacora` VALUES (1,'usuario agregado','root@localhost','2018-11-24 19:15:55','correo2@correos.com','usuario'),(2,'usuario agregado','root@localhost','2018-11-24 19:18:33','correos3@correos.com','usuario'),(3,'usuario agregado','root@localhost','2018-11-24 19:18:33','','usuario'),(4,'cliente agregado','root@localhost','2018-11-24 19:21:10','Alan','cliente'),(5,'usuario eliminado','root@localhost','2018-11-24 19:33:18','','usuario'),(6,'usuario actualizado','root@localhost','2018-11-24 19:33:18','correos3@correos.com','usuario'),(7,'cliente actualizado','root@localhost','2018-11-24 19:38:57','Alan','cliente'),(8,'cliente agregado','root@localhost','2018-11-24 19:46:14','Cliente: RaulMendez','cliente'),(9,'cliente actualizado','root@localhost','2018-11-24 19:49:11','Cliente: RonchoMendez id Cliente:3','cliente'),(10,'cliente actualizado','root@localhost','2018-11-24 19:49:42','Cliente: RolasMendez, id Cliente:3','cliente'),(11,'cliente actualizado','root@localhost','2018-11-24 19:50:18','Cliente: Rolas2 Mendez, id Cliente:3','cliente'),(12,'usuario agregado','root@localhost','2018-11-24 19:52:24','sincorreo@correo.com','usuario'),(13,'cliente agregado','root@localhost','2018-11-24 19:53:51','Cliente: PonchoPencho id Cliente:4','cliente'),(14,'cliente eliminado','root@localhost','2018-11-24 19:55:05','Cliente: Poncho Pencho, celular: 555','cliente'),(15,'usuario agregado','root@localhost','2018-11-24 20:03:06','correo: correofalso@gmail.com, Tipo Usuario2','usuario'),(16,'usuario actualizado','root@localhost','2018-11-24 20:04:35','correomasfalso@gmail.com Id Usuario: 5','usuario');
 /*!40000 ALTER TABLE `bitacora` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +145,7 @@ CREATE TABLE `cliente` (
   UNIQUE KEY `correo_UNIQUE` (`correo`),
   KEY `fk_Cliente_Usuario1_idx` (`Usuario_idUsuario`),
   CONSTRAINT `fk_Cliente_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +154,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'PEDRO','PEREZ','PERAS','AVE 1 CALLE 1','6192004987','CORREO1@CORREOS.COM',1),(2,'ALAN','LOPEZ','GONZALES','AVE. 1 CALLE 3 # 1','6757654334','CORREO2@CORREOS.COM',2),(3,'ROLAS2','MENDEZ','MENDOZA','AVE 43 CALLE LOCO #5423','7890543234','CORREO3@CORREOS.COM',3),(5,'DAVID','RIVERA','CORONADO','TU CORAZON','6142250940','DAVIDRIVERA@RIVERA',1),(6,'pedro','ortega','benitez','hola','6587454587','holhola@hola.com',1);
+INSERT INTO `cliente` VALUES (1,'Pedro','Perez','Peras','ave 1 calle 1','6192004987','correo1@correos.com',1),(2,'Alan','Lopez','Gonzales','Ave. 1 calle 3 # 1','6757654334','correo2@correos.com',2),(3,'Rolas2','Mendez','Mendoza','Ave 43 calle loco #5423','7890543234','correo3@correos.com',3);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,8 +309,8 @@ DROP TABLE IF EXISTS `empleado`;
 CREATE TABLE `empleado` (
   `idEmpleado` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
-  `ape_pat` varchar(45) NOT NULL,
-  `ape_mat` varchar(45) NOT NULL,
+  `ape-pat` varchar(45) NOT NULL,
+  `ape-mat` varchar(45) NOT NULL,
   `telefono` varchar(45) NOT NULL,
   `direccion` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
@@ -318,7 +319,7 @@ CREATE TABLE `empleado` (
   PRIMARY KEY (`idEmpleado`,`Usuario_idUsuario`),
   KEY `fk_Empleado_Usuario1_idx` (`Usuario_idUsuario`),
   CONSTRAINT `fk_Empleado_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,7 +328,6 @@ CREATE TABLE `empleado` (
 
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-INSERT INTO `empleado` VALUES (1,'MARTIN','CARRASCO','JAQUEZ','6391100931','DELICIAS','MARTINCJ','CAJG5321V',5),(2,'DAVID','RIVERA','CORONADO','6142250940','MONTE CASINO','DAVID@HOTMAIL.COM','RICDASC156',5);
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -413,7 +413,6 @@ CREATE TABLE `material` (
   `codigo` varchar(45) DEFAULT NULL,
   `precio` double NOT NULL,
   `UnidadMaterial_idUnidadMaterial` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`idMaterial`,`UnidadMaterial_idUnidadMaterial`),
   UNIQUE KEY `codigo_UNIQUE` (`codigo`),
   KEY `fk_Material_UnidadMaterial1_idx` (`UnidadMaterial_idUnidadMaterial`),
@@ -427,7 +426,7 @@ CREATE TABLE `material` (
 
 LOCK TABLES `material` WRITE;
 /*!40000 ALTER TABLE `material` DISABLE KEYS */;
-INSERT INTO `material` VALUES (1,'Suministro e instalación de tuberia conduit galvanizada pared delgada de 21mm ó 3/4\", incluyesuministro de materiales, soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,63.89,1,''),(2,'Suministro e instalación de conector recto liquatite 21mm ó 3/4\". incluye suministro de materiales,soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,11.41,1,''),(3,'Suministro e instalación de tuberia flexible tipo liquatite 21mm ó 3/4\". incluye suministro de materiales,soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,22.17,2,''),(4,'Suministro e instalación de tuberia conduit galvanizada pared delgada de 54mm ó2\", incluye suministrode materiales, soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,218.03,1,'');
+INSERT INTO `material` VALUES (1,'Suministro e instalación de tuberia conduit galvanizada pared delgada de 21mm ó 3/4\", incluyesuministro de materiales, soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,63.89,1),(2,'Suministro e instalación de conector recto liquatite 21mm ó 3/4\". incluye suministro de materiales,soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,11.41,1),(3,'Suministro e instalación de tuberia flexible tipo liquatite 21mm ó 3/4\". incluye suministro de materiales,soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,22.17,2),(4,'Suministro e instalación de tuberia conduit galvanizada pared delgada de 54mm ó2\", incluye suministrode materiales, soporteria, mano de obra y todo lo necesario para su correcta instalación.',NULL,218.03,1);
 /*!40000 ALTER TABLE `material` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -445,7 +444,7 @@ CREATE TABLE `prospecto` (
   `ape_mat` varchar(45) NOT NULL,
   `cel` varchar(45) NOT NULL,
   `correo` varchar(45) NOT NULL,
-  `doc` blob NOT NULL,
+  `doc` varchar(45) NOT NULL,
   PRIMARY KEY (`idProspecto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -795,4 +794,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-26 18:51:16
+-- Dump completed on 2018-11-28 12:19:06
