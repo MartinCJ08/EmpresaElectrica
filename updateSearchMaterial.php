@@ -55,6 +55,8 @@ echo"</table>";
 echo"<br>";
 ?>
 <input class="buttonSha" type="submit" name="accion" value="Guardar">
+<br><br>
+<a class="buttonSha" href="materialAdmon.php">Regresar</a>
 </form>
 </div>
 </body>
