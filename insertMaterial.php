@@ -28,7 +28,7 @@
 </tr>  -->  
 <tr>
    <td>Descripción:</td>
-   <td><input type="text" name="descripcion" size="20" maxlength="30"></td>
+   <td><input type="text" name="descripcion" size="20" maxlength="300"></td>
 </tr>
 <tr>
    <td>Codigo:</td>
@@ -40,7 +40,8 @@
 </tr>
 <tr>
    <td>Unidad:</td>
-   <td><input type="text" name="UnidadMaterial_idUnidadMaterial" size="20" maxlength="30"></td>
+   <td><select name ="UnidadMaterial_idUnidadMaterial"><option value="1">PIEZA</option>
+		<option value="2">Ml</option> </select></td>
 </tr>
 </table>
 <input type="submit" name="accion" value="Grabar">
@@ -48,6 +49,11 @@
 <a class="buttonSha" href="materialAdmon.php">Regresar</a>
 </FORM>
 <hr>
+
+
+
+
+
 <?php
    include("conec.php");
    $link=Conectarse();
@@ -62,16 +68,24 @@
          <td>&nbsp;descripcion&nbsp;</td>
          <td>&nbsp;codigo&nbsp;</td>
          <td>&nbsp;precio&nbsp;</td>
-         <td>&nbsp;UnidadMaterial_idUnidadMaterial&nbsp;</td>
+         <td>&nbsp;unidad&nbsp;</td>
       </tr>
 <?php
    while($row = mysqli_fetch_array($result)) {
 	   
+		$uni = "select * from unidadmaterial where idUnidadMaterial =".$row['UnidadMaterial_idUnidadMaterial'].";";
+		#echo $uni ;
+		$query_uni = mysqli_query( $link, $uni)
+        or die ( "Algo ha ido mal en la consulta a material en la base de datos");
+		$rowdos = mysqli_fetch_array($query_uni);
+		
+		
 		echo "<tr><td>".$row["idMaterial"]."</td>";
 		echo "<td >".$row["descripcion"]."</td>";
 		echo "<td>".$row["codigo"]."</td>";
 		echo "<td>".$row["precio"]."</td>";
-		echo "<td>".$row["UnidadMaterial_idUnidadMaterial"]."</td>";
+		echo "<td>".$rowdos['unidad']."</td>";
+		#echo "<td>".$row["UnidadMaterial_idUnidadMaterial"]."</td>";
    }
    mysqli_free_result($result);
 ?>

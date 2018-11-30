@@ -57,7 +57,7 @@ echo "<table>";
 		echo "<th>descripcion</th>";
 	    echo "<th>codigo</th>";
 	    echo "<th>precio</th>";
-	    echo "<th>UnidadMaterial_idUnidadMaterial</th>";
+	    echo "<th>unidad</th>";
 	echo "</tr>";
 	
 	// Bucle while que recorre cada registro y muestra cada campo en la tabla.
@@ -65,15 +65,17 @@ echo "<table>";
 		{
 		$uni = "select * from unidadmaterial where idUnidadMaterial =".$registro['UnidadMaterial_idUnidadMaterial'].";";
 		#echo $uni ;
-
-        
-		$query_uni= mysqli_fetch_array( $query_uni);
+		$query_uni = mysqli_query( $conexion, $uni)
+        or die ( "Algo ha ido mal en la consulta a material en la base de datos");
+		$registrodos= mysqli_fetch_array( $query_uni);
+		
+		
 		echo "<tr>";
 		echo "<td align='center'>" . $registro['idMaterial'] . "</td>";
 		echo "<td>".$registro['descripcion']."</td>";
 		echo "<td align='center'>".$registro['codigo']. "</td>";
 		echo "<td align='center'>".$registro['precio']. "</td>";
-		echo "<td align='center'>".$query_uni['unidad']. "</td>";
+		echo "<td align='center'>".$registrodos['unidad']. "</td>";
 
 	echo "</tr>";
 		}
