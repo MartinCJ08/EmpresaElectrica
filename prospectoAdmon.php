@@ -19,8 +19,8 @@
 
 <div align="center">
 	<!--<a class="buttonSha" href=".php">Añadir un nuevo cliente</a><br>-->
-	<a class="buttonSha" href="updateProspecto.php">Actualizar un cliente</a><br>
-	<a class="buttonSha" href="deleteProspecto.php">Borrar un cliente</a><br>
+	<a class="buttonSha" href="updateProspecto.php">Actualizar un prospecto</a><br>
+	<a class="buttonSha" href="deleteProspecto.php">Borrar un prospecto</a><br>
 </div>
 <?php
 	// Ejemplo de conexión a base de datos MySQL con PHP.
