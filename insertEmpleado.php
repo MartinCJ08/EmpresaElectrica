@@ -70,25 +70,27 @@
 <center>
  <table>
      <tr>
-         <td >&nbsp;Idcliente</td>
+         <td >&nbsp;IdCliente</td>
          <td>&nbsp;nombre&nbsp;</td>
          <td>&nbsp;Apellido paterno&nbsp;</td>
          <td>&nbsp;apellido materno&nbsp;</td>
+         <td>&nbsp;Teléfono&nbsp;</td>
          <td>&nbsp;Dirección&nbsp;</td>
-         <td>&nbsp;Celular&nbsp;</td>
          <td>&nbsp;Correo&nbsp;</td>
-         <td>&nbsp;Usuario_idUsarip&nbsp;</td>
+         <td>&nbsp;RFC&nbsp;</td>
+         <td>&nbsp;Usuario_idUsario&nbsp;</td>
       </tr>
 <?php
    while($row = mysqli_fetch_array($result)) {
 	   
-echo "<tr><td>".$row["idCliente"]."</td>";
+echo "<tr><td>".$row["idEmpleado"]."</td>";
 echo "<td >".$row["nombre"]."</td>";
-echo "<td>".$row["ape_pat"]."</td>";
-echo "<td>".$row["ape_mat"]."</td>";
+echo "<td>".$row["ape-pat"]."</td>";
+echo "<td>".$row["ape-mat"]."</td>";
+echo "<td>".$row["telefono"]."</td>";
 echo "<td>".$row["direccion"]."</td>";
-echo "<td>".$row["cel"]."</td>";
-echo "<td>".$row["correo"]."</td>";
+echo "<td>".$row["email"]."</td>";
+echo "<td>".$row["rfc"]."</td>";
 echo "<td>".$row["Usuario_idUsuario"]."</td>";
 
    }
