@@ -22,6 +22,7 @@
 	<a class="buttonSha" href="updateCliente.php">Actualizar un cliente</a><br>
 	<a class="buttonSha" href="deleteCliente.php">Borrar un cliente</a><br>-->
 	<a class="buttonSha" href="cotizacion.php">Realizar cotizacion</a><br>
+	<a class="buttonSha" href="cotizacionView.php">Ver cotizacion</a><br>
 </div>
 <?php
 	// Ejemplo de conexión a base de datos MySQL con PHP.
@@ -40,7 +41,7 @@ $db = mysqli_select_db( $conexion, $basededatos )
    or die ( "Upps! Pues va a ser que  podido conectar"
         . " a la base de datos" );
 	// establecer y realizar consulta. guardamos en variable.
-$consulta = "SELECT * FROM cliente";
+$consulta = "SELECT * FROM cotizacion_breve";
 
 $resultado = mysqli_query( $conexion, $consulta )
         or die ( "Algo ha ido mal en la consulta a la base de datos");
@@ -52,27 +53,28 @@ $resultado = mysqli_query( $conexion, $consulta )
 echo"<center>";
 echo "<table>";
 	echo "<tr>";
-		echo "<th>idcliente</th>";
-		echo "<th>Nombre</th>";
-	    echo "<th>Apellido paterno</th>";
-	    echo "<th>Apellido materno</th>";
-	    echo "<th>Dirección</th>";
-	    echo "<th>Celular</th>";
-	    echo "<th>Correo</th>";
-	    echo "<th>Usuario_idUsuario</th>";
+		echo "<th>Id</th>";
+		echo "<th>Concepto</th>";
+	    echo "<th>Costo Minimo</th>";
+	    echo "<th>Costo Maximo</th>";
+	    echo "<th>Distancia</th>";
+	    echo "<th>Tiempo de Servicio</th>";
+	    echo "<th>Tipo de Pago</th>";
+	    echo "<th>Cliente</th>";
 	echo "</tr>";
 	
 	// Bucle while que recorre cada registro y muestra cada campo en la tabla.
 	while ($registro = mysqli_fetch_array( $resultado ))
 		{
 		echo "<tr>";
-		echo "<td align='center'>" . $registro['idCliente'] . "</td><td>" . $registro['nombre'] . "</td>";
-		echo "<td>".$registro['ape_pat']."</td>";
-		echo "<td align='center'>".$registro['ape_mat']. "</td>";
-		echo "<td align='center'>".$registro['direccion']. "</td>";
-		echo "<td align='center'>".$registro['cel']. "</td>";
-		echo "<td align='center'>".$registro['correo']. "</td>";
-		echo "<td align='center'>".$registro['Usuario_idUsuario']. "</td>";
+		echo "<td align='center'>".$registro['ID'] . "</td>";
+		echo "<td align='center'>".$registro['CONCEPTO']."</td>";
+		echo "<td align='center'>".$registro['COSTO_MINIMO']. "</td>";
+		echo "<td align='center'>".$registro['COSTO_MAXIMO']. "</td>";
+		echo "<td align='center'>".$registro['DISTANCIA']. "</td>";
+		echo "<td align='center'>".$registro['TIEMPO SERVICIO']. "</td>";
+		echo "<td align='center'>".$registro['TIPO PAGO']. "</td>";
+		echo "<td align='center'>".$registro['CLIENTE']. "</td>";
 
 	echo "</tr>";
 		}

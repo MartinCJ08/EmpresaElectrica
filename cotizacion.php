@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head >
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/page_style.css">
 <link rel="stylesheet" type="text/css" href="css/row_style.css">
 <style>
 * {
@@ -53,6 +54,15 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
+<ul>
+  <li><a class="active" href="index.php">Principal</a></li>
+  <li><a href="clienteAdmon.php">Clientes</a></li>
+  <li><a href="empleadoAdmon.php">Empleados</a></li>
+  <li><a href="cotizacionAdmon.php">Cotizaciones</a></li>
+  <li><a href="materialAdmon.php">Material</a></li>
+  <li><a href="prospectoAdmon.php">Prospecto</a></li>
+</ul>
+
 <center>
 <h2>Cotización</h2>
 <p>Llene los datos para hacer la cotización</p>
@@ -114,6 +124,7 @@ input[type=submit]:hover {
     </div>
   </form>
 </div>
+<a class="buttonSha" href="materialAdmon.php">Regresar</a>
 
 </body>
 </html>
