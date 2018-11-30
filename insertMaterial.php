@@ -67,11 +67,11 @@
 <?php
    while($row = mysqli_fetch_array($result)) {
 	   
-echo "<tr><td>".$row["idMaterial"]."</td>";
-echo "<td >".$row["descripcion"]."</td>";
-echo "<td>".$row["codigo"]."</td>";
-echo "<td>".$row["precio"]."</td>";
-echo "<td>".$row["UnidadMaterial_idUnidadMaterial"]."</td>";
+		echo "<tr><td>".$row["idMaterial"]."</td>";
+		echo "<td >".$row["descripcion"]."</td>";
+		echo "<td>".$row["codigo"]."</td>";
+		echo "<td>".$row["precio"]."</td>";
+		echo "<td>".$row["UnidadMaterial_idUnidadMaterial"]."</td>";
    }
    mysqli_free_result($result);
 ?>
