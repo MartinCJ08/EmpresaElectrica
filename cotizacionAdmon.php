@@ -21,7 +21,7 @@
 	<!--<a class="buttonSha" href="insertCliente.php">Añadir un nuevo cliente</a><br>
 	<a class="buttonSha" href="updateCliente.php">Actualizar un cliente</a><br>
 	<a class="buttonSha" href="deleteCliente.php">Borrar un cliente</a><br>-->
-	<a class="buttonSha" href="cotizacion.php">Realizar cotizacion</a><br>
+	<a class="buttonSha" href="insertCotizacion.php">Realizar cotizacion</a><br>
 	<a class="buttonSha" href="viewCotizacion.php">Ver cotizacion</a><br>
 	<a class="buttonSha" href="updateCotizacion.php">Modificar cotizacion</a><br>
 	<a class="buttonSha" href="deleteCotizacion.php">Eliminar cotizacion</a><br>
