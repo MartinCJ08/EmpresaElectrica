@@ -261,7 +261,7 @@ CREATE TABLE `cotizacion` (
   KEY `fk_Cotizacion_Cliente1_idx` (`Cliente_idCliente`),
   CONSTRAINT `fk_Cotizacion_Cliente2` FOREIGN KEY (`Cliente_idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Cotizacion_TipoPago2` FOREIGN KEY (`TipoPago_idTipoPago`) REFERENCES `tipopago` (`idTipoPago`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,7 +270,7 @@ CREATE TABLE `cotizacion` (
 
 LOCK TABLES `cotizacion` WRITE;
 /*!40000 ALTER TABLE `cotizacion` DISABLE KEYS */;
-INSERT INTO `cotizacion` VALUES (1,'INSTALACION ELECTRICA',NULL,NULL,NULL,10,1,1),(2,'MANTENIMIENTO ELECTRICO',NULL,NULL,NULL,3,1,1),(3,'INSTALACION ELECTRICA',NULL,NULL,NULL,1,2,2),(19,'INSTALACION',NULL,NULL,4,4,1,16);
+INSERT INTO `cotizacion` VALUES (1,'INSTALACION ELECTRICA',NULL,NULL,NULL,10,1,1),(2,'MANTENIMIENTO ELECTRICO',NULL,NULL,NULL,3,1,1),(3,'INSTALACION ELECTRICA',NULL,NULL,NULL,1,2,2),(30,'INSTALACION',NULL,NULL,1,1,1,16);
 /*!40000 ALTER TABLE `cotizacion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -358,7 +358,7 @@ CREATE TABLE `cotizacion_has_material` (
 
 LOCK TABLES `cotizacion_has_material` WRITE;
 /*!40000 ALTER TABLE `cotizacion_has_material` DISABLE KEYS */;
-INSERT INTO `cotizacion_has_material` VALUES (1,1,29,1852.81),(1,2,10,114.1),(1,3,34,753.7800000000001),(1,4,2,436.06),(2,1,10,638.9),(2,2,10,114.1),(2,3,2,44.34),(2,4,3,654.09);
+INSERT INTO `cotizacion_has_material` VALUES (1,1,29,1852.81),(1,2,10,114.1),(1,3,34,753.7800000000001),(1,4,2,436.06),(2,1,10,638.9),(2,2,10,114.1),(2,3,2,44.34),(2,4,3,654.09),(30,1,1,63.89),(30,2,10,114.1);
 /*!40000 ALTER TABLE `cotizacion_has_material` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1370,6 +1370,28 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `agregar_cotizacion_material` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_cotizacion_material`(in idC int, in idMat int, in cant int)
+BEGIN
+
+insert into cotizacion_has_material (Cotizacion_idCotizacion,Material_idMaterial,cantidad_material)
+    values(idC,idMat,cant);
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `agregar_empleado` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1921,7 +1943,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `cotizacion_detalle` AS select `cotizacion_has_material`.`Cotizacion_idCotizacion` AS `ID`,`cotizacion_has_material`.`cantidad_material` AS `CANTIDAD`,`unidadmaterial`.`unidad` AS `UNIDAD`,`material`.`codigo` AS `CODIGO`,`material`.`descripcion` AS `DESCRIPCION`,(`cotizacion_has_material`.`costo_total_material` / `cotizacion_has_material`.`cantidad_material`) AS `COSTO UNITARIO`,`cotizacion_has_material`.`costo_total_material` AS `SUBTOTAL` from ((`cotizacion_has_material` join `material` on((`cotizacion_has_material`.`Material_idMaterial` = `material`.`idMaterial`))) join `unidadmaterial` on((`material`.`UnidadMaterial_idUnidadMaterial` = `unidadmaterial`.`idUnidadMaterial`))) group by `cotizacion_has_material`.`Material_idMaterial` */;
+/*!50001 VIEW `cotizacion_detalle` AS select `cotizacion_has_material`.`Cotizacion_idCotizacion` AS `ID`,`cotizacion_has_material`.`cantidad_material` AS `CANTIDAD`,`unidadmaterial`.`unidad` AS `UNIDAD`,`material`.`codigo` AS `CODIGO`,`material`.`descripcion` AS `DESCRIPCION`,(`cotizacion_has_material`.`costo_total_material` / `cotizacion_has_material`.`cantidad_material`) AS `COSTO UNITARIO`,`cotizacion_has_material`.`costo_total_material` AS `SUBTOTAL` from ((`cotizacion_has_material` join `material` on((`cotizacion_has_material`.`Material_idMaterial` = `material`.`idMaterial`))) join `unidadmaterial` on((`material`.`UnidadMaterial_idUnidadMaterial` = `unidadmaterial`.`idUnidadMaterial`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2025,4 +2047,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-01 13:34:58
+-- Dump completed on 2018-12-01 16:09:25
