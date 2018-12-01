@@ -38,10 +38,10 @@
 <table>
 <tr>
 	<td>&nbsp;Partida</td>
-	<td>&nbsp;Cantidad</td>
+	<td>&nbsp;Descripcion</td>
+    <td>&nbsp;Codigo&nbsp;</td>
     <td>&nbsp;Unidad&nbsp;</td>
-    <td>&nbsp;Código&nbsp;</td>
-    <td>&nbsp;Descripción&nbsp;</td>
+    <td>&nbsp;Cantidad&nbsp;</td>
     <td>&nbsp;Costo Unitario&nbsp;</td>
     <td>&nbsp;Subtotal&nbsp;</td>
 </tr>
@@ -50,10 +50,10 @@
 	$total = 0;
    while($row = mysqli_fetch_array($result)){  
 	echo "<tr><td> ".$contador." </td>";
-	echo "<td> ".$row["CANTIDAD"]." </td>";
-	echo "<td>".$row["UNIDAD"]." </td>";
-	echo "<td>".$row["CODIGO"]." </td>";
 	echo "<td>".$row["DESCRIPCION"]." </td>";
+	echo "<td>".$row["CODIGO"]." </td>";
+	echo "<td>".$row["UNIDAD"]." </td>";
+	echo "<td> ".$row["CANTIDAD"]." </td>";
 	echo "<td>".$row["COSTO UNITARIO"]." </td>";
 	echo "<td>".$row["SUBTOTAL"]." </td>";
 	$contador++;
