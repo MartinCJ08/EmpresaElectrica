@@ -16,8 +16,6 @@
 </ul>
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
-<h2>Crear nueva cotizacion</h1>
-
    
 <?php
    include("conec.php");
@@ -26,94 +24,161 @@
    $query_cliente="select * from cliente";
    $result_cliente=mysqli_query($link,$query_cliente);
    
-?> 
-
-<form action="insertCotizacionDb.php" method="post">
+   if (!$_GET) {
+     echo "<h2>Crear nueva cotizacion</h1>";
+     echo "<form action='insertCotizacionDb.php' method='post'>
 <table>
 <tr>
    <td>Concepto:</td>
-   <td><input type="text" name="concepto" placeholder="Instalacion/Mantenimiento" size="20" maxlength="45"></td>
+   <td><input type='text' name='concepto' placeholder='Instalacion/Mantenimiento' size='20' maxlength='45'></td>
 </tr>
 <tr>
    <td>Distancia:</td>
-   <td><input type="text" name="distancia" placeholder="En kilometros" size="20" maxlength="5"></td>
+   <td><input type='text' name='distancia' placeholder='En kilometros' size='20' maxlength='5'></td>
 </tr>
 <tr>
    <td>Tiempo de Servicio:</td>
-   <td><input type="text" name="t_s" placeholder="En horas" size="20" maxlength="4"></td>
+   <td><input type='text' name='t_s' placeholder='En horas' size='20' maxlength='4'></td>
 </tr>
 <tr>
    <td>Tipo de Pago:</td>
-   <td><select name ="t_p"><option value="1">Efectivo</option>
-		<option value="2">Crédito</option> </select></td>
+   <td><select name ='t_p'><option value='1'>Efectivo</option>
+		<option value='2'>Crédito</option> </select></td>
 </tr>
 <tr>
    <td>Cliente:</td>
-   <td>
-
-   <?php
+   <td>";
+   
    echo "<select name = 'cliente'>";
    
    while($row = mysqli_fetch_array($result_cliente)) {
 		echo "<option value =".$row["idCliente"]." >".$row["nombre"]." ".$row["ape_pat"]." ".$row["ape-mat"]."</option>";
    }
+   
 	mysqli_free_result($result_cliente);
 	echo "</select>";
-   
-   ?>
-
-		</td>
+	
+	echo "
+	</td>
 </tr>
 
 </table>
-<input type="submit" name="accion" value="Añadir registro">
+<input type='submit' name='accion' value='Añadir registro'>
 <br><br>
 </FORM>
-<hr>
-
-
-<?php
-   $link=Conectarse();
-   $query_cotizacion="select * from cotizacion_breve";
+<hr>";
    
-   $result_cotizacion=mysqli_query($link,$query_cotizacion);
    
-?> 
-
-<!--
-<center>
- <table>
-     <tr>
-         <td >&nbsp;Idcliente</td>
-         <td>&nbsp;nombre&nbsp;</td>
-         <td>&nbsp;Apellido paterno&nbsp;</td>
-         <td>&nbsp;apellido materno&nbsp;</td>
-         <td>&nbsp;Dirección&nbsp;</td>
-         <td>&nbsp;Celular&nbsp;</td>
-         <td>&nbsp;Correo&nbsp;</td>
-         <td>&nbsp;Usuario_idUsario&nbsp;</td>
-      </tr>
-	  -->
-<?php
-/*
-   while($row = mysqli_fetch_array($result)) {
-	   
-echo "<tr><td>".$row["idCliente"]."</td>";
-echo "<td >".$row["nombre"]."</td>";
-echo "<td>".$row["ape_pat"]."</td>";
-echo "<td>".$row["ape_mat"]."</td>";
-echo "<td>".$row["direccion"]."</td>";
-echo "<td>".$row["cel"]."</td>";
-echo "<td>".$row["correo"]."</td>";
-echo "<td>".$row["Usuario_idUsuario"]."</td></tr>";
-
-   }
-   mysqli_free_result($result);
-*/
+   
+   }else{	
+	$id = $_GET['id'];
+	$link=Conectarse();
+	$query_cotizacion="select CLIENTE from cotizacion_breve where id =".$id;
+	$result_nom=mysqli_query($link,$query_cotizacion);
+	$nombre = mysqli_fetch_array($result_nom);
+   
+	$Sql="select * from cotizacion_detalle where ID=".$id;
+	
+    //echo $Sql;
+	$result=mysqli_query($link,$Sql);
+	
+	
+	echo "<center><h2>Agregar Material a Cotizacion</h2></center>";
+	
+	}
+	
+	
    ?>
+ 
+
+<form action="insertCotizacionMaterialDb.php" method='post'>
+<table>
+<tr>
+
+<?php
+if($_GET){
+
+$query_material="select * from material";
+$result_material=mysqli_query($link,$query_material);
+   
+   echo "<tr>
+   <td>Descripcion:</td>
+   <td> <select name = 'id'>";
+   
+   while($row = mysqli_fetch_array($result_material)) {
+		echo "<option value =".$row["idMaterial"]." >".$row["descripcion"]."</option>";
+   }
+	echo "</select>";
+	mysqli_free_result($result_material);
+	echo "</tr>";
+
+echo "<td>Cantidad:</td>
+   <td><input type='text' name='cant' size='20' maxlength='30'></td>
+</tr>
+   <td><input type='text' name='idCot' value =".$id." size='20' maxlength='30'></td>
+</tr>"
+;
+echo "</table>
+
+<input type='submit' name='Boton' value='Añadir' />
+</form>
+<table>
 
 
- </table> </center>
+<br>";
+}
+?>
+   
+
+<?php
+	if($_GET){
+		echo "<center><h3>Cotizacion para: ".$nombre["CLIENTE"]."</h2></center>";
+		
+	echo "<tr>
+	<td>&nbsp;Partida</td>
+	<td>&nbsp;Descripcion</td>
+    <td>&nbsp;Codigo&nbsp;</td>
+    <td>&nbsp;Unidad&nbsp;</td>
+    <td>&nbsp;Cantidad&nbsp;</td>
+    <td>&nbsp;Costo Unitario&nbsp;</td>
+    <td>&nbsp;Subtotal&nbsp;</td>
+</tr>";
+
+	$contador = 1;
+	$total = 0;
+   while($row = mysqli_fetch_array($result)){  
+	echo "<tr><td> ".$contador." </td>";
+	echo "<td>".$row["DESCRIPCION"]." </td>";
+	echo "<td>".$row["CODIGO"]." </td>";
+	echo "<td>".$row["UNIDAD"]." </td>";
+	echo "<td> ".$row["CANTIDAD"]." </td>";
+	echo "<td>".$row["COSTO UNITARIO"]." </td>";
+	echo "<td>".$row["SUBTOTAL"]." </td>";
+	$contador++;
+	$total = $total + $row["SUBTOTAL"];
+	echo "</tr> ";
+}
+
+echo "<tr><td></td>";
+	echo "<td></td>";
+	echo "<td></td>";
+	echo "<td></td>";
+	echo "<td></td>";
+	echo "<td>TOTAL:</td>";
+	echo "<td>". $total. "</td>";
+	echo "</tr>";
+echo "</table>";
+   
+mysqli_free_result($result);
+	
+	
+}
+	
+	 ?>
+
+
+</center>
 </div>
+
 </body>
 </html>
