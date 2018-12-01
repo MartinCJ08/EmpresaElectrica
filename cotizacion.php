@@ -124,7 +124,7 @@ input[type=submit]:hover {
     </div>
   </form>
 </div>
-<a class="buttonSha" href="materialAdmon.php">Regresar</a>
+<a class="buttonSha" href="cotizacionAdmon.php">Regresar</a>
 
 </body>
 </html>
