@@ -69,7 +69,13 @@ echo "<table>";
 	while ($registro = mysqli_fetch_array( $resultado ))
 		{
 		echo "<tr>";
-		echo "<td align='center'>".$registro['ID'] . "</td>";
+		
+		
+		echo "<td align='center'>"."<a href=\"viewSearchCotizacion.php?idc=".$registro["ID"]."\"> ".$registro["ID"]  ."</td>";
+
+		
+		
+		//echo "<td align='center'>".$registro['ID'] . "</td>";
 		echo "<td align='center'>".$registro['CONCEPTO']."</td>";
 		echo "<td align='center'>".$registro['COSTO_MINIMO']. "</td>";
 		echo "<td align='center'>".$registro['COSTO_MAXIMO']. "</td>";

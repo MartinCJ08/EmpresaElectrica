@@ -17,10 +17,16 @@
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
 <?php
+	
 	include("conec.php");
 	$link=Conectarse();
-	$b= $_POST["idc"];
-
+	
+	if($_GET){
+		$b= $_GET["idc"];
+	}else{
+		$b= $_POST["idc"];
+	}
+	
 	$Sql="select * from cotizacion_detalle where ID=".$b;
 	
 	//Obtener el nombre del cliente
