@@ -184,7 +184,9 @@ mysqli_free_result($result);
 
 <form action="viewSearchCotizacion.php" method="post">
 <?php
+if($_GET){
  echo "<input hidden type='text' name='idc' size='10' maxlength='10' value =".$id.">";
+}
 ?> 
  <input class="buttonSha" type="submit" name="accion" value="Ver Cotizacion">
  <a class="buttonSha" href="cotizacionAdmon.php">Regresar</a>
