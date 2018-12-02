@@ -36,7 +36,7 @@
   
   while($row = mysqli_fetch_array($result)) {
       echo "<tr><td> "
-      . "<a href=\"deleteProspectoDb.php?idc= ".$row["idProspecto"]."\"> ".$row["idProspecto"]  ."</td>";
+      . "<a href=\"deleteProspectoDb.php?idc=".$row["idProspecto"]."\"> ".$row["idProspecto"]  ."</td>";
       echo " <td> ".$row["nombre"]  . "</td>";
       echo " <td> ".$row["ape_pat"]  . "</td>";
       echo " <td> ".$row["ape_mat"]  . "</td>";
