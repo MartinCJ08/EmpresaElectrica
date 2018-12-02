@@ -1,2 +1,2 @@
 # EmpresaElectrica
-Una página web que integra distintas aplicaciones administrativas y financieras. Vato ese loco.
+Una página web que integra distintas aplicaciones administrativas y financieras.
