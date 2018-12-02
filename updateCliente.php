@@ -13,6 +13,9 @@
   <li><a href="materialAdmon.php">Material</a></li>
   <li><a href="prospectoAdmon.php">Prospecto</a></li>
 </ul>
+<?php
+include("checksession.php");
+?>
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
 <h1>Ejemplo de modificar</h1>

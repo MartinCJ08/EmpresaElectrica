@@ -1,4 +1,5 @@
 <?php
+	include("checksession.php");
    include("conec.php");
    $link=Conectarse();
   

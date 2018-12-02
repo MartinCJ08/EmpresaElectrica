@@ -7,7 +7,7 @@
 </head>
 <body>
 <ul>
-  <li><a class="active" href="index.php">Principal</a></li>
+  <li><a class="active" href="indexAdmin.php">Principal</a></li>
   <li><a href="clienteAdmon.php">Clientes</a></li>
   <li><a href="empleadoAdmon.php">Empleados</a></li>
   <li><a href="cotizacionAdmon.php">Cotizaciones</a></li>
@@ -27,6 +27,7 @@
 	<a class="buttonSha" href="deleteCotizacion.php">Eliminar cotizacion</a><br>
 </div>
 <?php
+	include("checksession.php");
 	// Ejemplo de conexión a base de datos MySQL con PHP.
 	// Datos de la base de datos
 	$usuario = "root";

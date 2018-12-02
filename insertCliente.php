@@ -58,6 +58,7 @@
 </FORM>
 <hr>
 <?php
+	include("checksession.php");
    include("conec.php");
    $link=Conectarse();
    $query="select * from cliente";

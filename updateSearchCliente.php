@@ -17,7 +17,9 @@
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
 <?php
+	include("checksession.php");
 	include("conec.php");
+	
 	$link=Conectarse();
 	$b= $_POST["idc"];
 

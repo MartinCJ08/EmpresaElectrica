@@ -1,6 +1,7 @@
 <?php
 
 include("conec.php");
+include("checksession.php");
    $link=Conectarse();
 
 $id=$_POST["idc"]   ;
