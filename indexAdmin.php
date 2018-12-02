@@ -29,7 +29,7 @@ if(!$_SESSION){
 */
 include("checksession.php");
 include("conec.php");
-echo "Sesion iniciada: ". $_SESSION["myemail"];
+echo "Sesión iniciada: ". $_SESSION["myemail"];
 $link=Conectarse();
 
 ?>

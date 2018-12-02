@@ -1,6 +1,7 @@
 <?php
 
 function Conectarse(){
+	include("checksession.php");
     // Datos de la base de datos
 	$usuario = "root";//midifique estaba vacio, dio error 6-12
 	$password = "";

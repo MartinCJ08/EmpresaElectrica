@@ -1,5 +1,4 @@
 <?php
-
 include("conec.php");
 $link=Conectarse();
 

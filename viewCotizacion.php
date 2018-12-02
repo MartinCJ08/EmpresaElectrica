@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include("checksession.php");
+?>
 <html>
 <head>
 	<title>Ver Cotizacion</title>

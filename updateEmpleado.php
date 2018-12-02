@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php>
+include("checksession.php");
+?>
 <html>
 <head>
 	<title>Modificar Cliente</title>
@@ -6,7 +9,7 @@
 </head>
 <body>
 <ul>
-  <li><a class="active" href="index.php">Principal</a></li>
+  <li><a class="active" href="indexAdmin.php">Principal</a></li>
   <li><a href="clienteAdmon.php">Clientes</a></li>
   <li><a href="empleadoAdmon.php">Empleados</a></li>
   <li><a href="cotizacionAdmon.php">Cotizaciones</a></li>
