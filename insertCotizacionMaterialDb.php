@@ -27,6 +27,6 @@ echo "<br>";
 	   echo "<br> query sin realizar  verificar query en insertCotizacionMaterialDb";
 	   }
    
-  #header("Location: insertCotizacion.php?id=".$idCotizacion);
+  header("Location: insertCotizacion.php?id=".$idCotizacion);
 
 ?>

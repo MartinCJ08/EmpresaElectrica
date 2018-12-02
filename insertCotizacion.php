@@ -115,7 +115,7 @@ $result_material=mysqli_query($link,$query_material);
 echo "<td>Cantidad:</td>
    <td><input type='text' name='cant' size='20' maxlength='30'></td>
 </tr>
-   <td><input type='text' name='idCot' value =".$id." size='20' maxlength='30'></td>
+   <td hidden><input type='text' name='idCot' value =".$id." size='20' maxlength='30'></td>
 </tr>"
 ;
 echo "</table>
@@ -146,8 +146,15 @@ echo "</table>
 
 	$contador = 1;
 	$total = 0;
-   while($row = mysqli_fetch_array($result)){  
-	echo "<tr><td> ".$contador." </td>";
+	
+	$query_cot_mat="select * from cotizacion_has_material where Cotizacion_idCotizacion =".$id.";";
+	$result_cot_mat=mysqli_query($link,$query_cot_mat);
+	
+	
+   while($row = mysqli_fetch_array($result) and $row2 = mysqli_fetch_array($result_cot_mat)){ 
+	
+	echo "<tr>";
+	echo "<td><a href=\"deleteCotizacionMaterialDb.php?idm=".$row2["Material_idMaterial"]."&idc=".$id."\"> ".$contador  ."(borrar)</td>";
 	echo "<td>".$row["DESCRIPCION"]." </td>";
 	echo "<td>".$row["CODIGO"]." </td>";
 	echo "<td>".$row["UNIDAD"]." </td>";
@@ -170,11 +177,19 @@ echo "<tr><td></td>";
 echo "</table>";
    
 mysqli_free_result($result);
-	
-	
 }
 	
 	 ?>
+
+
+<form action="viewSearchCotizacion.php" method="post">
+<?php
+ echo "<input hidden type='text' name='idc' size='10' maxlength='10' value =".$id.">";
+?> 
+ <input class="buttonSha" type="submit" name="accion" value="Ver Cotizacion">
+ <a class="buttonSha" href="cotizacionAdmon.php">Regresar</a>
+</FORM>
+
 
 
 </center>
