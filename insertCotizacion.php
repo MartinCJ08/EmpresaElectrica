@@ -125,9 +125,12 @@ echo "</table>
 <table>
 
 
+
 <br>";
 }
 ?>
+
+<a class='buttonSha' href='cotizacionAdmon.php'>Regresar</a>
    
 
 <?php
@@ -192,7 +195,7 @@ if($_GET){
 }
 ?> 
 
-<a class='buttonSha' href="cotizacionAdmon.php'>Regresar</a>
+
 
 
 
