@@ -22,9 +22,9 @@
 	$link=Conectarse();
 	
 	if($_GET){
-		$b= $_GET["idc"];
+		$b= (int)$_GET["idc"];
 	}else{
-		$b= $_POST["idc"];
+		$b= (int)$_POST["idc"];
 	}
 	
 	$Sql="select * from cotizacion_detalle where ID=".$b;
@@ -36,6 +36,10 @@
    
    $resultNom = mysqli_query($link, $SqlNom);
    $rowNom = mysqli_fetch_array($resultNom);
+   if (!$rowNom) {
+    printf("Error: %s\n", mysqli_error($link));
+    exit();
+}
    echo "<h4>Cotizacion <br>Cliente: ".$rowNom["CLIENTE"]."</h1>";
    
    

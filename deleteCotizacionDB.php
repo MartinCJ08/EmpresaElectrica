@@ -4,7 +4,7 @@
   
    echo "borrando el registro:<br> ";
       
-   $var_id=$_GET["idc"];
+   $var_id=(int)$_GET["idc"];
   echo " valor de la variable enviada idc: ".$var_id;
   $query="call electricdb.eliminar_cotizacion(".$var_id.");";
   

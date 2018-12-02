@@ -71,8 +71,10 @@
    
    
    }else{	
-	$id = $_GET['id'];
+	
 	$link=Conectarse();
+	$id = (int)$_GET['id'];
+	
 	$query_cotizacion="select CLIENTE from cotizacion_breve where id =".$id;
 	$result_nom=mysqli_query($link,$query_cotizacion);
 	$nombre = mysqli_fetch_array($result_nom);
