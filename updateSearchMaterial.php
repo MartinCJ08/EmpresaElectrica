@@ -49,7 +49,7 @@
 	#$nom=$row["descripcion"];
 	echo "<tr><td><INPUT TYPE='text' NAME='id' SIZE='6' MAXLENGTH='40' value=". $row["idMaterial"] .">  </td>";
 #echo "<td><INPUT TYPE='text' NAME='id' SIZE='6' MAXLENGTH='40' value=". $row["descripcion"] .">  </td>";	
-	echo "<td><textarea rows='4' cols='50' NAME='desc'> ". $row["descripcion"] ."</textarea> </td>";
+	echo "<td><textarea rows='4' cols='50' NAME='desc'>". $row["descripcion"] ."</textarea> </td>";
 	
 	
 	echo "<td><INPUT TYPE='text' NAME='cod' SIZE='20' MAXLENGTH='30' value=". $row["codigo"] ." ></td>";
