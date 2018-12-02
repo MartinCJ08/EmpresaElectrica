@@ -180,17 +180,19 @@ mysqli_free_result($result);
 }
 	
 	 ?>
-
-
-<form action="viewSearchCotizacion.php" method="post">
 <?php
 if($_GET){
+ echo "<form action='viewSearchCotizacion.php' method='post'>";
+
+
  echo "<input hidden type='text' name='idc' size='10' maxlength='10' value =".$id.">";
+
+
+ echo "<input class='buttonSha' type='submit' name='accion' value='Ver Cotizacion'> </FORM>";
 }
 ?> 
- <input class="buttonSha" type="submit" name="accion" value="Ver Cotizacion">
- <a class="buttonSha" href="cotizacionAdmon.php">Regresar</a>
-</FORM>
+
+<a class='buttonSha' href="cotizacionAdmon.php'>Regresar</a>
 
 
 
