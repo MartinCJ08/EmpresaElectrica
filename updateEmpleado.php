@@ -4,7 +4,7 @@ include("checksession.php");
 ?>
 <html>
 <head>
-	<title>Modificar Cliente</title>
+	<title>Modificar Empleado</title>
 	<link rel="stylesheet" type="text/css" href="css/page_style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@ include("checksession.php");
 </ul>
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
-<h1>Ejemplo de modificar</h1>
+<h1>Modificar Empleado</h1>
 <form action="updateSearchEmpleado.php" method="post">
 idEmpleado:
  <input type="text" name="idc" size="5" maxlength="10">

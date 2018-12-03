@@ -56,35 +56,22 @@
    <head>
       <title>Iniciar sesión</title>
       
-      <style type = "text/css">
-         body {
-            font-family:Arial, Helvetica, sans-serif;
-            font-size:14px;
-         }
-         label {
-            font-weight:bold;
-            width:100px;
-            font-size:14px;
-         }
-         .box {
-            border:#666666 solid 1px;
-         }
-      </style>
+<link rel="stylesheet" type="text/css" href="css/page_style.css">
       
    </head>
    
    <body bgcolor = "#FFFFFF">
-	
+	<br><br><br>
       <div align = "center">
          <div style = "width:300px; border: solid 1px #333333; " align = "left">
             <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
 				
             <div style = "margin:30px">
                
-               <form action = "" method = "post">
+               <form action = "" method = "post" class="container">
                   <label>Correo    :</label><input type = "text" name = "email" class = "box"/><br /><br />
                   <label>Contraseña:</label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
+                  <input type = "submit" value = " Enviar "/><br />
                </form>
 			   <?php
 				echo $error;

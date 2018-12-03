@@ -1,6 +1,6 @@
 <html>
 <head>
-   <title>Ejemplo de PHP</title>
+   <title>Borrar un prospecto</title>
    <meta charset="utf-8">
    <link rel="stylesheet" type="text/css" href="css/page_style.css">
 </head>
@@ -15,7 +15,7 @@
 </ul>
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
-<h1>Ejemplo de Borrardo en bases de datos con PHP y MySQL</h1>
+<h1>Borrar un prospecto</h1>
 <?php
    include("conec.php");
    $link=Conectarse();

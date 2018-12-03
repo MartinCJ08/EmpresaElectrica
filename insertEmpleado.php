@@ -16,7 +16,7 @@
 </ul>
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
-<h1>Ejemplo de uso de bases de datos con PHP y MySQL</h1>
+<h1>Agregar un nuevo empleado</h1>
 
 <form action="insertEmpleadoDb.php" method="post">
 <table>

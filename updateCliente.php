@@ -18,7 +18,7 @@ include("checksession.php");
 ?>
 
 <div style="padding:20px;margin-top:30px;height:1500px;">
-<h1>Ejemplo de modificar</h1>
+<h1>Modificar cliente</h1>
 <form action="updateSearchCliente.php" method="post">
 idCliente:
  <input type="text" name="idc" size="5" maxlength="10">
