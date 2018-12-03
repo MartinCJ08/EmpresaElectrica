@@ -1,4 +1,7 @@
 <html>
+<?php
+include("conec.php");
+?>
 <head>
    <title>Inicio</title>
    <meta charset="utf-8">
@@ -18,18 +21,10 @@
 <center>
 <h1>Página Principal</h1>
 <?php
-/*
+
 session_start();
-if(!$_SESSION){
-	echo "Login fallido";
-	header("location:login.php");
-}else{
-	header("indexAdmin.php");
-}
-*/
-include("checksession.php");
-include("conec.php");
-echo "Sesión iniciada: ". $_SESSION["myemail"];
+
+echo "Sesión iniciada: ".$_SESSION["myemail"];
 $link=Conectarse();
 
 ?>

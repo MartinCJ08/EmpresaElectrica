@@ -9,9 +9,8 @@ if(!$_SESSION){
 	echo "Login fallido";
 	session_unset();
 	session_destroy();
-	header("location:index.php");
+	header("location:login.php");
 }else{
-	
 }
 
 ?>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include("checksession.php");
->
+?>
 <html>
 <head>
 	<title>Modificar Prospecto</title>

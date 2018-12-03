@@ -28,8 +28,11 @@
 	  
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	  if (!$row) {
-		printf("Error: %s\n", mysqli_error($link));
-		exit();
+		
+		#printf("Error: %s\n", mysqli_error($link));
+		#printf("Login fallido");
+		#header("location: login.php");
+		
 		}
 	  
       #$active = $row['active'];
@@ -44,6 +47,7 @@
          header("location: indexAdmin.php");
       }else {
          $error = "Tu correo o contraseña son incorrectos";
+		 
       }
    }
 ?>
