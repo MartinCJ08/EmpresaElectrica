@@ -12,7 +12,7 @@
   echo "<br>". $query;
   echo "<br>";
   
-  
+  setAutocommitOff($link);
    $resultado=mysqli_query($link,$query);
    
    echo "<br> valor de funcion mysql_query ". $resultado."<br>";
@@ -22,8 +22,11 @@
 	   	   }
 		else {
 			
-			echo " funcion fallida checar sintaxis y/o conexion servidor";
+			echo "funcion fallida checar sintaxis y/o conexion servidor";
+			mysqli_rollback($link);
 			}   
+			setAutocommitOn($link);
+		closeConnection($link);
 
-  header("Location: deleteCliente.php");
+  #header("Location: deleteCliente.php");
 ?>

@@ -25,7 +25,23 @@
 
 	$Sql="select * from cliente where idCliente=".$b."";
     //echo $Sql;
+	
+	setAutocommitOff($link);
+	
    $result=mysqli_query($link,$Sql);
+   
+   if ($result==true) {
+	   echo " Registro visto correcamente..";
+	   	   }
+		else {
+			
+			echo " funcion fallida checar sintaxis y/o conexion servidor";
+			mysqli_rollback($link);
+			}   
+			
+	setAutocommitOn($link);
+	closeConnection($link);
+	
 ?>
 <table border="1" cellspacing="1" cellpadding="1">
 <tr>

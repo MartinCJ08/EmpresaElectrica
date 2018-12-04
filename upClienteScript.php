@@ -14,17 +14,24 @@ $idu=$_POST["idu"];
 
 $Sql = "call electricdb.modificar_cliente(".$idc.", '".$nom."', '".$ap."', '".$am."', '".$direccion."', '".$cel."', '".$correo."', ".$idu.");";
 
-$resultado=mysqli_query($link,$Sql);
-  
-echo "<br> valor del funcion query ". $resultado."<br>";
 
-if ($resultado==1) {
-	   echo " registro actualizado exitosamente..";
-}else {
-	echo " funcion fallida checar sintaxis y/o conexion servidor";
-}   
+setAutocommitOff($link);
+   $result=mysqli_query($link,$Sql);
+   
+   if ($result==1) {
+	   echo " Registro actualizado correctamente..";
+	   header("Location: clienteAdmon.php");
+	   	   }
+		else {
+			
+			echo " funcion fallida checar sintaxis y/o conexion servidor";
+			mysqli_rollback($link);
+			}   
+			
+	setAutocommitOn($link);
+	closeConnection($link);
 
-header("Location: clienteAdmon.php");
+
 
    
 ?>
