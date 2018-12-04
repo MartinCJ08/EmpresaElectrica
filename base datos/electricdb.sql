@@ -80,10 +80,10 @@ CREATE TABLE `bit_usuario` (
   `idBitacora` int(11) NOT NULL AUTO_INCREMENT,
   `movimiento` varchar(45) NOT NULL,
   `usuario` varchar(45) NOT NULL,
-  `fecha` varchar(45) NOT NULL,
+  `fecha` datetime NOT NULL,
   `concepto` varchar(45) NOT NULL,
   PRIMARY KEY (`idBitacora`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,6 +92,7 @@ CREATE TABLE `bit_usuario` (
 
 LOCK TABLES `bit_usuario` WRITE;
 /*!40000 ALTER TABLE `bit_usuario` DISABLE KEYS */;
+INSERT INTO `bit_usuario` VALUES (3,'Login a pagina administrativa','correo1@correos.com','2018-12-03 16:47:45','Login correcto'),(4,'Login a pagina administrativa','correo1@correos.com','2018-12-03 16:48:11','Login correcto'),(5,'Login a pagina administrativa','correo1@correos.com','2018-12-03 16:50:43','Login correcto'),(6,'Login a pagina administrativa','correo1@correos.com','2018-12-03 16:54:08','Login correcto'),(7,'Login a pagina administrativa','correo1@correos.com','2018-12-03 16:55:31','Login correcto'),(8,'Logout','correo1@correos.com','2018-12-03 16:55:32','Sesión cerrada'),(9,'Login a pagina administrativa','correo2@correos.com','2018-12-03 16:58:42','Login correcto'),(10,'Logout','correo2@correos.com','2018-12-03 16:58:51','Sesión cerrada'),(11,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:00:11','Login correcto'),(12,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:03:43','Login correcto'),(13,'Logout','correo1@correos.com','2018-12-03 17:04:18','Sesión cerrada'),(14,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:04:53','Login correcto'),(15,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:05:37','Login correcto'),(16,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:06:19','Login correcto'),(17,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:08:30','Login correcto'),(18,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:09:37','Login correcto'),(19,'Logout','correo1@correos.com','2018-12-03 17:10:07','Sesión cerrada'),(20,'Login a pagina administrativa','correo1@correos.com','2018-12-03 17:10:18','Login correcto');
 /*!40000 ALTER TABLE `bit_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -270,7 +271,7 @@ CREATE TABLE `cotizacion` (
 
 LOCK TABLES `cotizacion` WRITE;
 /*!40000 ALTER TABLE `cotizacion` DISABLE KEYS */;
-INSERT INTO `cotizacion` VALUES (2,'MANTENIMIENTO ELECTRICO',NULL,NULL,NULL,3,1,1),(32,'MANTENIMIENTO',NULL,NULL,9,12,1,9),(33,'INSTALACION ELECTRICA',NULL,NULL,1,90,1,10),(35,'MANTENIMIENTO',NULL,NULL,10,20,1,16);
+INSERT INTO `cotizacion` VALUES (2,'MANTENIMIENTO ELECTRICO',NULL,NULL,NULL,3,1,1),(32,'MANTENIMIENTO',NULL,NULL,9,12,1,9),(33,'INSTALACION ELECTRICA',NULL,NULL,1,90,1,10),(35,'MANTENIMIENTO',NULL,NULL,10,20,1,16),(36,'INSTALACION',NULL,NULL,1,3,1,16);
 /*!40000 ALTER TABLE `cotizacion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -358,7 +359,7 @@ CREATE TABLE `cotizacion_has_material` (
 
 LOCK TABLES `cotizacion_has_material` WRITE;
 /*!40000 ALTER TABLE `cotizacion_has_material` DISABLE KEYS */;
-INSERT INTO `cotizacion_has_material` VALUES (2,1,10,638.9),(2,2,10,114.1),(2,3,2,44.34),(2,4,3,654.09),(32,1,10,638.9),(32,2,2,22.82),(32,3,12,266.04),(32,4,15,3270.45),(33,1,900,57501),(33,2,12,136.92000000000002),(33,3,1300,28821.000000000004),(33,4,5000,1090150),(35,1,1,63.89),(35,2,2,22.82),(35,3,15,332.55),(35,4,4,872.12);
+INSERT INTO `cotizacion_has_material` VALUES (2,1,10,638.9),(2,2,10,114.1),(2,3,2,44.34),(2,4,3,654.09),(32,1,10,638.9),(32,2,2,22.82),(32,3,12,266.04),(32,4,15,3270.45),(33,1,900,57501),(33,2,12,136.92000000000002),(33,3,1300,28821.000000000004),(33,4,5000,1090150),(35,1,1,63.89),(35,2,2,22.82),(35,3,15,332.55),(35,4,4,872.12),(36,1,2,130.58),(36,2,5,57.05),(36,3,6,133.02);
 /*!40000 ALTER TABLE `cotizacion_has_material` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -689,7 +690,7 @@ CREATE TABLE `material` (
   UNIQUE KEY `codigo_UNIQUE` (`codigo`),
   KEY `fk_Material_UnidadMaterial1_idx` (`UnidadMaterial_idUnidadMaterial`),
   CONSTRAINT `fk_Material_UnidadMaterial1` FOREIGN KEY (`UnidadMaterial_idUnidadMaterial`) REFERENCES `unidadmaterial` (`idUnidadMaterial`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1314,6 +1315,27 @@ declare cotid int;
 set cotid = (SELECT idCotizacion FROM electricdb.cotizacion order by idCotizacion desc limit 1) ;
 
 RETURN cotid;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `agregar_bit_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregar_bit_usuario`(in mov varchar(45),
+in usu varchar(45),in concept varchar(45))
+BEGIN
+insert into bit_usuario(movimiento,usuario,fecha,concepto) values(mov,usu,now(),concept);
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2068,4 +2090,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-01 23:50:42
+-- Dump completed on 2018-12-03 17:11:34
