@@ -5,7 +5,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if(!$_SESSION){
-
 	echo "Login fallido";
 	session_unset();
 	session_destroy();

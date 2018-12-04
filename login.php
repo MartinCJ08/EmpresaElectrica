@@ -1,4 +1,4 @@
-<?php
+<?php	
 	function Conectarse(){
     // Datos de la base de datos
 	$usuario = "root";//midifique estaba vacio, dio error 6-12
@@ -12,11 +12,19 @@
           or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
     return $conexion;
 }
+
+	
+	
 		  
    session_start();
+   if ($_SESSION!=null) {
+	header("location: indexAdmin.php");
+}
+
    $link=Conectarse();
    $error = "";
    
+
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
@@ -43,10 +51,18 @@
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if($count == 1) {
-         $_SESSION['myemail'] = $myemail;         
+        $_SESSION['myemail'] = $myemail; 
+		$sqlbit = "call electricdb.agregar_bit_usuario('Login a pagina administrativa','".$myemail."','Login correcto');";
+		$mysqlin = mysqli_query($link,$sqlbit);
+		echo"valor de la variable sqlbit= ".$sqlbit;
+		
          header("location: indexAdmin.php");
       }else {
-         $error = "Tu correo o contraseña son incorrectos";
+		  $sqlbit = "call electricdb.agregar_bit_usuario('Login a pagina administrativa','".$myemail."','Error, mas de una columna');";
+
+		  $mysqlin = mysqli_query($link,$sqlbit);
+		  $error = "Tu correo o contraseña son incorrectos";
+		  echo"valor de la variable sqlbit= ".$sqlbit;
 		 
       }
    }

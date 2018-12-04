@@ -12,11 +12,18 @@
 <center>
 <?php
 session_start();
+include("conec.php");
+$conect = Conectarse();
+
+$sqlbit = "call agregar_bit_usuario('Logout','".$_SESSION["myemail"]."','Sesión cerrada');";
+$mysqlin = mysqli_query($conect,$sqlbit);
 
 if(!$_SESSION){
 
 }else{
 	echo "<h1>Sesion cerrada: ". $_SESSION["myemail"]."</h1>";
+	
+	
 	session_unset();
 	session_destroy();
 }
